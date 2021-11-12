@@ -7,7 +7,7 @@ public class Principal {
 		/*1. Hacer un programa que calcule el área de un círculo en cm2. En el main, debemos crear un objeto tipo Círculo y llamar a dicho método. 
 		 * Mejorar el programa añadiendo a la clase Círculo otro método que calcule el área del círculo en m2.*/
 		
-		Circulo c = new Circulo (2.3); //dos con tres es un valor aleatorio //
+		Circulo c = new Circulo (3.3); //dos con tres es un valor aleatorio //
 		c.calcularArea ();
 		
 		double areaCir=0.0;

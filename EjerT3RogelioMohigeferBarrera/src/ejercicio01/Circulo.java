@@ -20,10 +20,9 @@ public class Circulo {
 	}
 	//Nuestros métodos:
 	public double calcularArea () {
-		if (radio > 0) {
-			return Math.PI*Math.pow(radio, radio);  //NO PUEDO PONER MAS DE UN RETURN EN UN METODO. LOS METODOS SOLO DEVUELVEN UNA COSA, GRANDE O PEQUEÑA//
-	
-		}								//NO METER SYSOS EN METODOS PARA CALCULAR. EN METODOS DE IMPRIMIR TICKETS, OK//
+		double dos = 2.0;
+		return Math.PI*Math.pow(radio, dos);  //NO PUEDO PONER MAS DE UN RETURN EN UN METODO. LOS METODOS SOLO DEVUELVEN UNA COSA, GRANDE O PEQUEÑA//
+									//NO METER SYSOS EN METODOS PARA CALCULAR. EN METODOS DE IMPRIMIR TICKETS, OK//
 	
 	}
 
