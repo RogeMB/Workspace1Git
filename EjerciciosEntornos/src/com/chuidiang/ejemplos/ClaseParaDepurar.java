@@ -23,4 +23,4 @@ public class ClaseParaDepurar {
     	return suma;
 	}
  
-}
+}//i%20==0, para ponerlo como condición en puntos de ruptura para que se pare cada 20. Dentro del bucle echacuentas.
