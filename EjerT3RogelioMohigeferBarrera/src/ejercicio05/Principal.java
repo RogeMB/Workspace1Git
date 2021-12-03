@@ -1,5 +1,7 @@
 package ejercicio05;
 
+import lectura.Leer;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -11,6 +13,31 @@ public class Principal {
 		todos.*/
 		
 		Aleatorio aleatorio = new Aleatorio ();
+		int opcion, numJugado, max, min, tam = 10;
+		int [] quiniela;
+		System.out.println("Introduzca la opción del juego que quiera jugar.");
+		opcion = Leer.datoInt();
+		
+		
+		switch (opcion) {
+			case 1: 
+				quiniela  = new int [tam];
+				for (int i = 0: i <quiniela.length; i++)
+					int quiniela [i] = aleatorio.calcularAleatorio(max, min);	
+				for (int i = 0: i <quiniela.length; i++)
+					System.out.println(aleatorio.calcularAleatorio(opcion, opcion));
+				
+				break;
+			case 2: "primitiva"
+				max=49;
+				min=1;
+				System.out.println("Diga su número jugado");
+				numJugado=Leer.datoInt();
+				aleatorio.mostrarGanador(aleatorio.comprobarGanadorPrimi(aleatorio.calcularAleatorio(max, min), numJugado));
+				break;
+			case 3:
+				break; "chinos";
+		}
 		
 		System.out.println("Betis - Sevilla: " + aleatorio.quiniela());
 		
