@@ -1,5 +1,9 @@
 package ejercicio01;
 
+/*Hacer un programa que calcule el área de un círculo en cm2. En el main, debemos 
+ * crear un objeto tipo Círculo y llamar a dicho método. Mejorar el programa añadiendo
+ *  a la clase Círculo otro método que calcule el área del círculo en m2.*/
+
 public class Circulo {
 	
 	private double radio;
@@ -23,7 +27,11 @@ public class Circulo {
 		double dos = 2.0;
 		return Math.PI*Math.pow(radio, dos);  //NO PUEDO PONER MAS DE UN RETURN EN UN METODO. LOS METODOS SOLO DEVUELVEN UNA COSA, GRANDE O PEQUEÑA//
 									//NO METER SYSOS EN METODOS PARA CALCULAR. EN METODOS DE IMPRIMIR TICKETS, OK//
+	}
 	
+	public double calcularAreaMcuad () {
+		int diezMil = 10000;
+		return calcularArea () /diezMil; 	
 	}
 
 }
