@@ -8,12 +8,12 @@ public class Circulo {
 	
 	private double radio;
 	 
-	//Constructor
+	//Constructor//
 	public Circulo (double radio) {
 		this.radio=radio;
 	}
 	//Constructor vacío para objetos vacíos//
-	public Circulo () {  //no lo pide el ejercicio// 	
+	public Circulo () {  	
 	}
 	//Getters and setters
 	public double getRadio () {

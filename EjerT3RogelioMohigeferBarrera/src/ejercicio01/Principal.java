@@ -12,18 +12,33 @@ public class Principal {
 		 * Círculo otro método que calcule el área del círculo en m2.*/
 		
 		double radio;
-		Circulo c = new Circulo ();
 		double areaCir=0.0;
 		
 		System.out.println("¿Cuánto vale el radio en cm?");
 		radio = Leer.datoDouble();
+		Circulo c = new Circulo (radio);
 		
-		c.setRadio(radio); /*valor en cm*/
 		System.out.println("El radio vale: " +c.getRadio()+" cm.");
 		
 		areaCir=c.calcularArea();
 		System.out.println("El área del círculo es: "+areaCir+" cm2.");
 		System.out.println("El área del círculo es: "+c.calcularAreaMcuad ()+" m2.");  //ambos son válidos, pero iremos eligiendo uno u otro según el caso//
+	
+		/*OTRA FORMA DE HACERLO: */
+		System.out.println("\nLo hacemos de nuevo: ");
+		Circulo cr = new Circulo (); 
+		
+		System.out.println("¿Cuánto vale el radio en cm?");
+		radio = Leer.datoDouble();
+
+		cr.setRadio(radio); /*valor en cm*/
+		System.out.println("El radio vale: " +cr.getRadio()+" cm.");
+		
+		areaCir=cr.calcularArea();
+		System.out.println("El área del círculo es: "+areaCir+" cm2.");
+		System.out.println("El área del círculo es: "+cr.calcularAreaMcuad ()+" m2.");  //ambos son válidos, pero iremos eligiendo uno u otro según el caso//
+	
+	
 	} 
 
 }

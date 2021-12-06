@@ -6,70 +6,61 @@ public class Aleatorio {
 	
 	
 	/*todo en un método*/
-	public int calcularAleatorio (int max, int min) {
+	public int calcularAleatorio (int min, int max) {
 		int valor = 0;
 		Random num = new Random (System.nanoTime());
 		valor= num.nextInt(max - min + 1) + min;
 		return valor;
 	}
 	
-	public char calcularGanador (int prob) {
+	public char calcularGanador (int ale) {
 		char valor;
-		if (prob == 1) {
+		if (ale == 1) {
 			valor = '1';
 			return valor;		
-		}else if (prob == 3) {
+		}else if (ale == 3) {
 			valor = 'X';
 			return valor;
 		}else {
 			valor = '2';
 			return valor;
 		}
-	} /*lo correcto sería que los 1, 2 y X pinten en consola a través de otro método. 
-	   * Los métodos que imprimen van con void*/
+	}
 	
-	public boolean comprobarGanadorPrimi (int numJugado, int numGanado) {
-		boolean resultado = true;
-		if (numJugado == numGanado) {
-			resultado = true;
-		}else {
-			resultado = false;
+	public void imprimirQuiniela () {
+		int quince = 15, min=1, max=3, nueve=9;;
+		char resultado;
+		
+		for (int i=0; i<quince; i++) {
+			resultado=calcularGanador(calcularAleatorio(min, max));
+			
+			if (i<nueve) {
+				System.out.print("Resultado  "+(i+1)+ ": ");
+			}else 
+				System.out.print("Resultado "+(i+1)+ ": ");
+			
+			switch (resultado) {
+				case '1': 
+					System.out.println("\t"+resultado);
+					break;
+				case 'X':
+					System.out.println("\t\t"+resultado);
+					break;
+				case '2':
+					System.out.println("\t\t\t"+resultado);
+					break;
+			}
 		}
-		return resultado;
+		
+	
+		
 	}
 	
-	public void mostrarGanador (boolean decimo) {  /*mostramos ganador*/  /*dentro del IF se hace si la condición es verdadera*/
-		if (decimo) { /*como la variable que ya estamos usando (decimo) es booleana no hace falta poner decimo = true, o true a secas*/
-			System.out.println("¡Enhorabuena, has ganado!");
-		}else {
-			System.out.println("Sigue probando suerte.");
-		}
-	} 
 	
-	/*podemos LLAMAR a un método dentro de otro método, pero no podemos HACER un método dentro de otro método*/
 	
-	/*---------------------------------------------------------------------------------------------------------*/
-	public char quiniela () {
-		int n = aleatorio (2) + 1;
-		switch (n) {
-			case 1: return '1';
-			case 2: return '2';
-			default: return 'x';
-		}
-	}
 	
-	public int chinos () {
-		return aleatorio (3);
-	}
-	public int primitiva () {
-		return aleatorio (48) +1;
-	}
 	
-	//maximo está incluido entre los valores de retornos
-	private int  aleatorio (int maximo) {
-		Random r = new Random ();
-		return r.nextInt (maximo+1);
-	}
+	
 
 	
 
