@@ -16,7 +16,8 @@ public class Principal {
 		Random r = new Random (System.nanoTime());
 		
 		
-		System.out.println("\t\t_____________________||-EVALUATOR 3000-||_____________________\nBienvenido/a profesor/a, \nEste programa le genera el boletín de calificaciones de un alumno.");
+		System.out.println("\t\t_____________________||-EVALUATOR 3000-||_____________________\nBienvenido/a profesor/a, \nEste programa "
+				+ "le genera el boletín de calificaciones de un alumno.");
 		
 		do {
 			nNombreAl="NombreAlumno";
@@ -26,7 +27,8 @@ public class Principal {
 			System.out.print("\nIngrese cuántas asignaturas ha realizado el alumno: ");
 			numAsig=Leer.datoInt();
 			while (numAsig<min || numAsig>max) {
-				System.out.print("\t\t***ERROR: Tiene que ser un número mayor o igual a 1 y menor de 15***.\nIngrese cuántas asignaturas ha realizado el alumno: ");
+				System.out.print("\t\t***ERROR: Tiene que ser un número mayor o igual a 1 y menor de 15***.\nIngrese cuántas asignaturas ha "
+						+ "realizado el alumno: ");
 				numAsig=Leer.datoInt();
 			}
 			nAsignatura=new String [numAsig];
