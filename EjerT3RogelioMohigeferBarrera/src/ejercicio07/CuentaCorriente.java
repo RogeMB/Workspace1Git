@@ -35,6 +35,12 @@ public class CuentaCorriente {
 				+ "                                    \\__|  \\__|\\______/\\__|  \\__|                                               \r\n"
 				+ "                                                                                                               \r\n"
 				+ "                                                                                                               \r\n"
+				+ "\r\n"
+				+ " __ __  __ ______  ____ ____  __  __  ___  ______ __   ___   __  __  ___  __       ____   ___  __  __ __ __   \r\n"
+				+ " || ||\\ || | || | ||    || \\\\ ||\\ || // \\\\ | || | ||  // \\\\  ||\\ || // \\\\ ||       || )) // \\\\ ||\\ || || //   \r\n"
+				+ " || ||\\\\||   ||   ||==  ||_// ||\\\\|| ||=||   ||   || ((   )) ||\\\\|| ||=|| ||       ||=)  ||=|| ||\\\\|| ||<<    \r\n"
+				+ " || || \\||   ||   ||___ || \\\\ || \\|| || ||   ||   ||  \\\\_//  || \\|| || || ||__|    ||_)) || || || \\|| || \\\\   \r\n"
+				+ "                                                                                                              \r\n"
 				+ "                                                                                                               \r\n"
 				+ "");
 	}
@@ -46,7 +52,7 @@ public class CuentaCorriente {
 	}
 	
 	public void imprimirInvalido () {
-		System.out.println("\n¡Ah, ah, ah! No dijiste la opción correcta "
+		System.out.println("\n\t***¡Ah, ah, ah! ¡No has dicho la opción correcta!***\n "
 				+ "\n  		   .:/shmmmmmmmmmmmmmmh/`                   \r\n"
 				+ "                 .odddmmmmmmNNNmNNNNNNNmh:                  \r\n"
 				+ "               .sdmmmmNmNNNNNNNNNNmNmmNNNms.                \r\n"
@@ -105,23 +111,35 @@ public class CuentaCorriente {
 				+ "      `---.   `.-:-/++//::-`    `...-://:-.``` `----        \r\n"
 				+ "    `+-...-:://::--- `                 `.---::::::-:    "
 				+ ".\n<<----<<----<<----<<----<<----<<----<<----<<----<<"
-				+ "----<<----<<----<<----<<----<<----<<----<<----<<----<<----");
+				+ "----<<----");
 	}
 	
 	public void imprimirCorrecto () {
 		System.out.println(
-				"\n¡Operación realizada con éxito!\n_______________________________________"
+				"\n*****¡Operación realizada con éxito!*****\n_______________________________________"
 				+ "_____________________________________________________");
 	}
 	
 	public void imprimirIncorrecto () {
 		System.out.println(
-				"\nOperación rechazada.\n<<----<<----<<----<<----<<----<<----<<----<<----"
+				"\n*****Operación rechazada*****.\n<<----<<----<<----<<----<<----<<----<<----<<----"
 				+ "<<----<<----<<----<<----<<----<<----<<----<<----<<----<<----");
 	}
 	
 	public void adios () {
-		System.out.println("\n******GRACIAS POR ELEGIRNOS. VUELVA PRONTO******");
+		System.out.println("\n\r\n"
+				+ "                                                                  \r\n"
+				+ "                                          ,,               M      \r\n"
+				+ "  .g8\"\"\"bgd                               db            ,,,M..    \r\n"
+				+ ".dP'     `M                                            'P  M `db, \r\n"
+				+ "dM'       `  `7Mb,od8  ,6\"Yb.   ,p6\"bo  `7MM   ,6\"Yb.  8m._M  `\"' \r\n"
+				+ "MM             MM' \"' 8)   MM  6M'  OO    MM  8)   MM  `YMMM._    \r\n"
+				+ "MM.    `7MMF'  MM      ,pm9MM  8M         MM   ,pm9MM     `MYMMb, \r\n"
+				+ "`Mb.     MM    MM     8M   MM  YM.    ,   MM  8M   MM  M   M  .M8 \r\n"
+				+ "  `\"bmmmdPY  .JMML.   `Moo9^Yo. YMbmd'  .JMML.`Moo9^Yo.YbmmMmd9'  \r\n"
+				+ "                                                           M      \r\n"
+				+ "                                                                  \r\n"
+				+ "");
 	}
 	
 	public void ingresarDinero () {
