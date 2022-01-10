@@ -4,9 +4,50 @@ import lectura.Leer;
 
 public class CuentaCorriente {
 	
-	private double saldo=0.00;
-	private String nNombre = "Nombre";
+	//Atributos
 	
+	private double saldo;  //nunca se instancia objetos ni se le da valor a los atributos//
+	private String nNombreTitular;
+	private Oficina o;
+	
+	//Constructores//
+	
+	public CuentaCorriente(double saldo, String nNombreTitular) {
+		this.saldo = saldo;
+		this.nNombreTitular = nNombreTitular;
+	}
+	
+	public CuentaCorriente() {
+		
+	}
+	
+	//Getters & Setters//
+	
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public String getnNombreTitular() {
+		return nNombreTitular;
+	}
+
+	public void setnNombreTitular(String nNombreTitular) {
+		this.nNombreTitular = nNombreTitular;
+	}
+	
+	//toString//
+	
+	@Override
+	public String toString() {
+		return "CuentaCorriente [saldo=" + saldo + ", nNombreTitular=" + nNombreTitular + "]";
+	}
+	
+	//Métodos de impresión//
+
 	public void takeMyCash () {
 		System.out.println("\r\n"
 				+ "$$$$$$$$\\      $$\\                      $$\\      $$\\                 $$$$$$\\                   $$\\             \r\n"
@@ -45,12 +86,8 @@ public class CuentaCorriente {
 				+ "");
 	}
 	
-	public void bienvenido () {
-		System.out.print("Bienvenido/a, ingrese su nombre: ");
-		nNombre = Leer.dato();
-		System.out.println("\n¡Hola "+nNombre+"!. \nSu saldo actual es de "+saldo+"€.");
-	}
 	
+
 	public void imprimirInvalido () {
 		System.out.println("\n\t***¡Ah, ah, ah! ¡No has dicho la opción correcta!***\n "
 				+ "\n  		   .:/shmmmmmmmmmmmmmmh/`                   \r\n"
@@ -114,11 +151,24 @@ public class CuentaCorriente {
 				+ "----<<----");
 	}
 	
+	public void imprimirValidez(boolean b) {
+		if (b) {
+			System.out.println(
+					"\n*****¡Operación realizada con éxito!*****\n_______________________________________"
+					+ "_____________________________________________________");
+		}else {
+			System.out.println(
+					"\n*****Operación rechazada*****.\n<<----<<----<<----<<----<<----<<----<<----<<----"
+					+ "<<----<<----<<----<<----<<----<<----<<----<<----<<----<<----");
+		}
+	}
+	
 	public void imprimirCorrecto () {
 		System.out.println(
 				"\n*****¡Operación realizada con éxito!*****\n_______________________________________"
 				+ "_____________________________________________________");
 	}
+	
 	
 	public void imprimirIncorrecto () {
 		System.out.println(
@@ -142,6 +192,8 @@ public class CuentaCorriente {
 				+ "");
 	}
 	
+	//Métodos de cálculo
+	
 	public void ingresarDinero () {
 		double dineroIngresar=0.00; 
 		dineroIngresar = Leer.datoDouble();
@@ -150,7 +202,6 @@ public class CuentaCorriente {
 			this.imprimirCorrecto();
 		} else 
 			this.imprimirIncorrecto();
-
 	}
 	
 	public void retirarDinero () {
@@ -169,7 +220,7 @@ public class CuentaCorriente {
 		saldoDolar = precioDolar * saldo; 
 		System.out.printf("Su saldo en dóllares americanos es: $%.2f\n", saldoDolar);  
 		this.imprimirCorrecto();
-	}
+	} //aquí tiene que haber un return get.saldo(); No actualizamos saldo. Solo hacemos una operacion sobre saldo sin una variable de saldoDolar.
 	
 	public void imprimeSaldo () {
 		System.out.printf("\nSu saldo actual es de: %.2f€", saldo);

@@ -21,11 +21,24 @@ public class Principal {
 		* Supón que la cuenta inicialmente tiene un saldo de cero. Escribe una clase CuentaCorriente que
 		* implemente las funcionalidades descritas y un main con un menú para probarlas.*/
 		
-		int opcion=0, salir=0;
-		CuentaCorriente c = new CuentaCorriente ();
+		int opcion = 0, salir = 0;
+		CuentaCorriente c;
+		Oficina o;
+		double saldo, cant;
+		String nNombreTitular;
+		boolean op;
 		
+		c = new CuentaCorriente ();
 		c.takeMyCash();
-		c.bienvenido();
+		
+		System.out.print("Bienvenido/a, ingrese su nombre: ");
+		nNombreTitular = Leer.dato();
+		System.out.print("\nAhora ingrese su saldo en euros: ");
+		saldo = Leer.datoDouble();
+		System.out.println("\n¡Hola "+nNombreTitular+"!. \nSu saldo actual es de "+saldo+"€.");
+		
+		c = new CuentaCorriente (saldo, nNombreTitular);
+		o = new Oficina (c, 1); //1 = id oficina 
 		
 		do {
 			System.out.print("\n\nTeclee el número de la operación que desea realizar. \n0. Salir \n1. Ingresar dinero "
@@ -39,17 +52,27 @@ public class Principal {
 					break;
 				case 1:
 					System.out.print("\nTeclee cantidad a ingresar: ");
-					c.ingresarDinero();
+					cant = Leer.datoDouble();
+					o.ingresarDinero(cant);
+					
+					
+					//
+					
 					break;
 				case 2:
 					System.out.print("\nTeclee cantidad a retirar: ");
-					c.retirarDinero ();
+					cant = Leer.datoDouble();
+					op= o.retirarDinero (cant);
+					c.imprimirValidez (op);
+					//Opcion B
+					//c.imprimirMensaje (o.retirarDinero (cant));
 					break;
 				case 3:
 					c.cambioDolar ();
 					break;
 				case 4:
 					c.imprimeSaldo();
+					//syso (c);  Basta con eso.
 					break;
 				default:
 					c.imprimirInvalido();
