@@ -167,7 +167,7 @@ public class CuentaCorriente {
 		double precioDolar=1.134, saldoDolar=0.00;
 		System.out.println("\nEl valor actual del dóllar Americano es de: " + precioDolar+ "€");
 		saldoDolar = precioDolar * saldo; 
-		System.out.printf("Su saldo en dóllares americanos es: $%.2f", saldoDolar);  
+		System.out.printf("Su saldo en dóllares americanos es: $%.2f\n", saldoDolar);  
 		this.imprimirCorrecto();
 	}
 	
