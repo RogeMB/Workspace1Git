@@ -64,6 +64,11 @@ public class Oficina {
 		c.imprimirCorrecto();
 	}
 	
+	/*public double cambiar (double divisa) {
+	 * 	return c.getSaldo()*divisa;
+	 * }  PREGUNTAR PRIMERO EL PRECIO DEL DOLLAR HOY Y GUARDARLO EN LA VARIABLE DIVISA. ESO EN EL MAIN. LUEGO OTRO MÉTODO PARA IMPRIMIR
+	 * */  
+	
 	public void imprimeSaldo () {
 		System.out.printf("\nSu saldo actual es de: %.2f€", c.getSaldo());
 	}
