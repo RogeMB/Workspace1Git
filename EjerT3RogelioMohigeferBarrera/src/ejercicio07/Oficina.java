@@ -73,6 +73,12 @@ public class Oficina {
 		System.out.printf("\nSu saldo actual es de: %.2f€", c.getSaldo());
 	}
 	
+	//ejemplo si no tenemos una cuenta como atributo. Por ejemplo, para un quiosco, que no hay que crear una clase tipo cuenta. Hay que poner en comentario el atributo de arriba
+	
+	public void ingresarSinObjeto (double cantidad, CuentaCorriente c) {
+		c.setSaldo(c.getSaldo()+cantidad);
+	}
+	
 	
 
 }
