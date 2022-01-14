@@ -3,53 +3,39 @@ package ejercicio09;
 import lectura.Leer;
 
 public class Maquina {
-	double precio = 1.5;
+	private double recaudacion = 0;
+	String contrasenna = new String("Nomelase");  // Contraseña por defecto
+	private double cambio;
 	
-	public double calcularPrecio (int numTickets) {
-		return precio*numTickets;
-	}
-	
-	public int preguntarTickets () {
-		int numTickets = 0;
-		System.out.println("¿Cuántos tickets desea adquirir?");
-		numTickets=Leer.datoInt();
-		while (numTickets < 0) {
-			System.out.println("Introduzca una opción correcta.");
-			numTickets=Leer.datoInt();
-		}
-		return numTickets;
-	}
-	
-	public double calcularCambio (int numTickets, double ingreso) {
-		return ingreso-calcularPrecio (numTickets);
-	}
-	
-	public double pago (int numTickets) {
-		double ingreso, cambio;
-		do {
-			System.out.println("El precio total es : "+calcularPrecio(numTickets)+"\nIntroduzca importe: ");
-			ingreso=Leer.datoDouble();
-			cambio=calcularCambio (numTickets, ingreso);
-			if (cambio < 0) {
-				System.out.println("Falta: "+(-cambio)+"\nIntroduzca importe restante: ");
-				ingreso=ingreso+Leer.datoDouble();
-				cambio=calcularCambio (numTickets, ingreso);
-			} else {
-				System.out.println("Recoja el cambio: "+cambio);
-			}
-		} while (cambio < 0);
-		return 1;
-	}
-	
-	public void venderTickets () {
-		int numTickets;
-		double ingreso, cambio;
-		numTickets = preguntarTickets();
-		
-		if (numTickets > 0) {
-			
-		} 
-		
+	// Setters and Getters
+	public double getRecaudacion() {
+		return recaudacion;
 	}
 
+	public void setRecaudacion(double recaudacion) {
+		this.recaudacion = recaudacion;
+	}
+	
+	public String getContrasenna() {
+		return contrasenna;
+	}
+
+	public void setContrasenna(String contrasenna) {
+		this.contrasenna = contrasenna;
+	}
+	
+	
+	// Métodos
+	public double calcularCambio (double precio, double ingreso) {
+		cambio=ingreso-precio;
+		return cambio;
+	}
+	
+	public void ventaCancelada() {
+		System.out.println("\n***Venta cancelada***");
+	}
+
+	public void error() {
+		System.out.println("\n\t****** ERROR ******");
+	}
 }

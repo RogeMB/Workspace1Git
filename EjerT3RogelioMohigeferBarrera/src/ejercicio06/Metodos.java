@@ -1,21 +1,145 @@
 package ejercicio06;
 
-import lectura.Leer;
+import java.util.Random;
 
 public class Metodos {
 	
-	private String nNombre = "Nombre";
-	private String nEnter = "Enter";
-	private int eleccion = 0;
+	private int resultado;
+	private int min;
+	private int max;
+	private int numLanzamientos;
+	private int numCaras;
+	private int porcentaje;
+	private int porcentajeAciertos;
+
+	//Constructor
+	public Metodos(int resultado, int min, int max, int numLanzamientos, int numCaras, int porcentaje,
+			int porcentajeAciertos) {
+		super();
+		this.resultado = resultado;
+		this.min = min;
+		this.max = max;
+		this.numLanzamientos = numLanzamientos;
+		this.numCaras = numCaras;
+		this.porcentaje = porcentaje;
+		this.porcentajeAciertos = porcentajeAciertos;
+	}
 	
-	public int getEleccion() {
-		return eleccion;
+	public Metodos ( ) {
+		
 	}
 
-	public void setEleccion(int eleccion) {
-		this.eleccion = eleccion;
+	
+	//GettersSetters
+	public int getResultado() {
+		return resultado;
 	}
 
+	
+	public void setResultado(int resultado) {
+		this.resultado = resultado;
+	}
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
+
+	public int getNumLanzamientos() {
+		return numLanzamientos;
+	}
+
+	public void setNumLanzamientos(int numLanzamientos) {
+		this.numLanzamientos = numLanzamientos;
+	}
+
+	public int getNumCaras() {
+		return numCaras;
+	}
+
+	public void setNumCaras(int numCaras) {
+		this.numCaras = numCaras;
+	}
+
+	public int getPorcentaje() {
+		return porcentaje;
+	}
+
+	public void setPorcentaje(int porcentaje) {
+		this.porcentaje = porcentaje;
+	}
+	
+	
+	public int getPorcentajeAciertos() {
+		return porcentajeAciertos;
+	}
+
+	public void setPorcentajeAciertos(int porcentajeAciertos) {
+		this.porcentajeAciertos = porcentajeAciertos;
+	}
+	
+	//ToString
+
+	@Override
+	public String toString() {
+		return "Metodos [resultado=" + resultado + ", min=" + min + ", max=" + max + ", numLanzamientos="
+				+ numLanzamientos + ", numCaras=" + numCaras + ", porcentaje=" + porcentaje + ", porcentajeAciertos="
+				+ porcentajeAciertos + "]";
+	}
+
+
+	//MétodosCálculo
+	public int lanzarMoneda () {
+		min=1;
+		max=2;
+		Random r = new Random(System.nanoTime());
+		resultado = r.nextInt(max-min+1)+min;
+		numLanzamientos++;
+		if (resultado==min ) 
+			numCaras++;
+		return resultado;
+	}
+	
+	public int calcularPorcentaje () {
+		int cien=100;
+		porcentaje=(numCaras*cien)/numLanzamientos;
+		return porcentaje;
+	}
+	
+	public int calcularPorcentajeAcierto (int aciertos) {
+		int cien = 100;
+		porcentajeAciertos= cien*aciertos/numLanzamientos;
+		return porcentajeAciertos;
+	}
+	
+	public boolean comprobarEleccion (int eleccion) {
+		if (eleccion==resultado) {
+			return true;
+		}
+		return false;
+	}
+	
+	//Métodos de impresión
+	public void imprimirGanador () {
+		System.out.println("\n\t¡¡¡E N H O R A B U E N A!!!");
+	}
+	
+	public void imprimirPerdedor () {
+		System.out.println("\n\t¡¡¡Ooooh!!!Más suerte la próxima vez...");
+	}
+	
+	
 	public void imprimirTitulo () {
 		System.out.println("\r\n"
 				+ "  __  __   __         ____                                      ____                \r\n"
@@ -26,17 +150,7 @@ public class Metodos {
 				+ "                                               |_|                                  \r\n"
 				+ "\n");
 		
-	}
-	
-	public void bienvenido () {
-		System.out.print("Bienvenido/a,\n Ingrese su nombre: ");
-		nNombre = Leer.dato();
-		System.out.println("\n¡Hola " +nNombre+"!. Para comenzar pulsa la tecla:  \r\n\t\t\t\t"
-				+ "╔═╗╔╗╔╔╦╗╔═╗╦═╗\r\n\t\t\t\t"
-				+ "║╣ ║║║ ║ ║╣ ╠╦╝\r\n\t\t\t\t"
-				+ "╚═╝╝╚╝ ╩ ╚═╝╩╚═\r\n");
-		nEnter= Leer.dato();
-	}
+	}	
 	
 	public void imprimirInstrucciones () {
 		System.out.println("\n____________________________________________________________________________________________"
@@ -54,10 +168,14 @@ public class Metodos {
 				+ "______________________________");
 	}
 	
-	public int elegirCaraCruz () {
-		eleccion = Leer.datoInt();
-		return eleccion;
-	} 	
+	public void imprimirCaraCruz () {
+		if (resultado==1) {
+			System.out.println("\n¡¡¡Ha salido CARA!!!\n_____________________________________________________________");
+		}else {
+			System.out.println("\n¡¡¡Ha salido CRUZ!!!\n_____________________________________________________________");
+		}
+	}
+
 	
 	public void imprimirIncorrecto () {
 		System.out.println(

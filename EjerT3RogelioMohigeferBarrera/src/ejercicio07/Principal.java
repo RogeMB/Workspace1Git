@@ -24,12 +24,11 @@ public class Principal {
 		int opcion = 0, salir = 0;
 		CuentaCorriente c;
 		Oficina o;
-		double saldo, cant;
+		double saldo, cant, divisa;
 		String nNombreTitular;
-		boolean op;
 		
-		c = new CuentaCorriente ();
-		c.takeMyCash();
+		o = new Oficina ();
+		o.takeMyCash();
 		
 		System.out.print("Bienvenido/a, ingrese su nombre: ");
 		nNombreTitular = Leer.dato();
@@ -42,40 +41,37 @@ public class Principal {
 		
 		do {
 			System.out.print("\n\nTeclee el número de la operación que desea realizar. \n0. Salir \n1. Ingresar dinero "
-					+ "\n2. Retirar dinero \n3. Cambio a Dóllar Americano \n4. Ver saldo actual. \nRespuesta: ");
+					+ "\n2. Retirar dinero \n3. Cambio a Dólar Americano \n4. Ver saldo actual. \nRespuesta: ");
 			opcion=Leer.datoInt();
 			switch (opcion){
 				case 0:
 					if (opcion == salir) {
-						c.adios();
+						o.adios();
 					}
 					break;
 				case 1:
 					System.out.print("\nTeclee cantidad a ingresar: ");
 					cant = Leer.datoDouble();
-					o.ingresarDinero(cant);
-					
-					
-					//
-					
+					//o.ingresarDinero(cant);
+					o.imprimirValidez(o.ingresarDinero(cant));
 					break;
 				case 2:
 					System.out.print("\nTeclee cantidad a retirar: ");
 					cant = Leer.datoDouble();
-					op= o.retirarDinero (cant);
-					c.imprimirValidez (op);
-					//Opcion B
-					//c.imprimirMensaje (o.retirarDinero (cant));
+					o.imprimirValidez (o.retirarDinero (cant));
 					break;
 				case 3:
-					c.cambioDolar ();
+					System.out.print("\n¿A cuánto se cambia un euro en dólares Americanos?: ");
+					divisa=Leer.datoDouble();
+					o.cambiarDolar(divisa);
+					o.imprimirDolar (divisa);
+					o.imprimirCorrecto();
 					break;
 				case 4:
-					c.imprimeSaldo();
-					//syso (c);  Basta con eso.
+					System.out.println(c);
 					break;
 				default:
-					c.imprimirInvalido();
+					o.imprimirInvalido();
 				}
 		} while (opcion!=salir);
 	
