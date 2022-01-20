@@ -15,6 +15,6 @@ public class Vendedor {
 	
 	Movil listado [];
 	private int totalMovilVendido;
-	private double totalRecaudado;
+	private static double totalRecaudado;
 	
 }
