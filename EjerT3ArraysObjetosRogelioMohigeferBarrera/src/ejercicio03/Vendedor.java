@@ -1,5 +1,7 @@
 package ejercicio03;
 
+import java.util.Arrays;
+
 public class Vendedor {
 	
 
@@ -14,7 +16,46 @@ public class Vendedor {
 	
 	
 	Movil listado [];
-	private int totalMovilVendido;
+	private static int totalMovilVendido;
 	private static double totalRecaudado;
+	
+	//Constructor
+	public Vendedor(Movil[] listado) {
+		this.listado = listado;
+	}
+
+	//ToString
+	@Override
+	public String toString() {
+		return "Vendedor [listado=" + Arrays.toString(listado) + ", totalMovilVendido=" + totalMovilVendido + "]";
+	}
+	
+	
+	//GettersSetters
+	public Movil[] getListado() {
+		return listado;
+	}
+
+	public void setListado(Movil[] listado) {
+		this.listado = listado;
+	}
+
+	public int getTotalMovilVendido() {
+		return totalMovilVendido;
+	}
+
+	public void setTotalMovilVendido(int totalMovilVendido) {
+		Vendedor.totalMovilVendido = totalMovilVendido;
+	}
+
+	public static double getTotalRecaudado() {
+		return totalRecaudado;
+	}
+
+	public static void setTotalRecaudado(double totalRecaudado) {
+		Vendedor.totalRecaudado = totalRecaudado;
+	}
+	
+	
 	
 }
