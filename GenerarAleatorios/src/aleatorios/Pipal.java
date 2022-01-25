@@ -8,6 +8,10 @@ public class Pipal {
 		// TODO Auto-generated method stub
 		
 		int numero, tam=1000, nombre, booleano, apellido1, apellido2;
+
+		
+		
+		
 		String [] nombres = {
 				new String ("Jerónimo") , new String ("José Luis") , new String ("Antonio"), new String ("Pedro"), 
 				new String ("Manuel"), new String ("Victor"), new String ("Carlos"), new String ("Santiago"), 
