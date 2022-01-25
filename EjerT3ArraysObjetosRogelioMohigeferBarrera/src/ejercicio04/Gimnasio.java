@@ -73,7 +73,4 @@ public class Gimnasio {
 		return Math.round(mediaIMC*cien)/cien;
 	}
 	
-
-	
-	
 }
