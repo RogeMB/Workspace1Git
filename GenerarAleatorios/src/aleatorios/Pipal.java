@@ -1,5 +1,8 @@
 package aleatorios;
 
+
+
+import java.time.LocalDate;
 import java.util.Random;
 
 public class Pipal {
@@ -7,61 +10,80 @@ public class Pipal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int numero, tam=1000, nombre, booleano, apellido1, apellido2;
-
+		int tam=2000, segundos, minuto, hora, dia, dia2, mes, anio;
+		String estado;
 		
-		
-		
-		String [] nombres = {
-				new String ("Jerónimo") , new String ("José Luis") , new String ("Antonio"), new String ("Pedro"), 
-				new String ("Manuel"), new String ("Victor"), new String ("Carlos"), new String ("Santiago"), 
-				new String ("José Ignacio"), new String ("Adrián"), new String ("David"), new String ("Rogelio"), new String ("Luis Miguel"),
-				new String ("Nicolás"), new String ("Ana Pilar"), new String ("Álvaro"), new String ("Maylor"), new String ("Arturo"),
-				new String ("Nacho"), new String ("Mario"), new String ("Valentín"), new String ("Roberto"), new String ("Jorge"),
-				new String ("Alejandro"), new String ("José Manuel"), new String ("Rafael"), new String ("Jesús"), new String ("Ángel"),
-				new String ("Miguel"), new String ("Alberto"), new String ("Eduardo"), new String ("Goku"), new String ("Krilin"),
-				new String ("Piccolo"), new String ("Bulma"), new String ("Vegeta"), new String ("Gohan"), new String ("Trunks"),
-				new String ("Satán"), new String ("Juan Bosco"), new String ("Jon"), new String ("Lee"), new String ("Marina")
-		}; //43
-		
-		String [] apellidos = {
-			new String ("García"), new String ("Pérez"), new String ("González"), new String ("Jiménez"), new String ("Infante"),
-			new String ("Puertas"), new String ("Arnáiz"), new String ("Cano"), new String ("Durbán"), new String ("Franco"),
-			new String ("Fernández"), new String ("Chaves"), new String ("Ardana"), new String ("Martínez"), new String ("Barba"),
-			new String ("López"), new String ("Céspedes"), new String ("Pedrazas"), new String ("Viloca"), new String ("Ortega"),
-			new String ("Reina"), new String ("María"), new String ("Moreno"), new String ("Gómez"), new String ("Tenorio"),
-			new String ("Rodríguez"), new String ("Rivas"), new String ("Fuentes"), new String ("Gil"), new String ("Martín"),
-			new String ("Carrillo"), new String ("Iglesias"), new String ("Serón"), new String ("Delgado"), new String ("Lora"),
-			new String ("Barrera"), new String ("Tejado"), new String ("Morilla"), new String ("Macho"), new String ("Romero"),
-			new String ("Ruiz"), new String ("Bustamante"), new String ("Mercado"), new String ("Puertas"), new String ("Carvajal"),
-			new String ("Velasco"), new String ("Mohigefer"), new String ("Barrera"), new String ("Tola"), new String ("Carro"),
-			new String ("Puig"), new String ("Chavez"), new String ("Giménez"), new String ("Infantes"), new String ("Cano"),
-			
-		}; //55
-		
- 		char letra;
-		
-		
+	
 		
 		for(int i=0;i<tam;i++) {
 			
 			Random aleatorio = new Random ();
 			
 			
-			numero= aleatorio.nextInt(99999999-10000000 +1) +10000000;
+			anio= aleatorio.nextInt(2022-2019 +1) +2019;
 			
-			letra = (char) (aleatorio.nextInt(26) +'A');
+			mes = (aleatorio.nextInt(12) +1);
 			
-			nombre = aleatorio.nextInt(42 +1);
+			dia = aleatorio.nextInt(28) +1;
 			
-			apellido1 = aleatorio.nextInt(54 +1);
-			apellido2 = aleatorio.nextInt(54+1);
+			hora = aleatorio.nextInt(90)+1;
 			
-			booleano = aleatorio.nextInt(2+1);
+			minuto = aleatorio.nextInt(14)+1;
 			
 			
-			System.out.printf("(\'%d%c\', \'%s\', \'%s %s\', %s),\n", numero, letra, nombres[nombre], apellidos[apellido1], apellidos[apellido2], booleano!=1 ? "true": "false");
-		}
+			
+			int max=99999999, min=10000000, ale, maxL=90, minL=65, aleL;
+
 		
+	    		Random r=new Random(System.nanoTime());
+	    		ale=r.nextInt(max-min+1)+min;
+	        	
+	    		aleL=r.nextInt(maxL-minL+1)+minL;
+	    		
+	            int asciiValue = aleL;
+			
+	            String convertedChar = Character.toString(aleL);
+	            /*System.out.println("'"+ale+convertedChar+"'");*/
+	        	
+		
+			LocalDate fecha = LocalDate.of(anio, mes, dia); 
+			LocalDate fecha2 = fecha.plusDays(hora);
+			LocalDate fecha3 = fecha2.plusDays(minuto); 
+			
+			if(aleatorio.nextInt(2)+1 ==1) {
+				estado = "En vigor";
+			}
+			else {
+				estado = "cancelada";
+			}
+			
+			
+			segundos = aleatorio.nextInt(100); //porcentaje
+			
+			dia2 = aleatorio.nextInt(5)+1; //numPersonas
+			
+			
+			int tipopago = 0;
+			tipopago= aleatorio.nextInt(4)+1;
+			
+			String consulta = "(SELECT dni_cliente "
+					+ "FROM cliente "
+					+ "ORDER BY RANDOM "
+					+ "LIMIT 1)";
+			
+			String habitacion = "(SELECT num_habitacion "
+					+ "FROM habitacion "
+					+ "ORDER BY RANDOM "
+					+ "LIMIT 1)";
+			
+			if (segundos>50 || segundos == 0) {
+				System.out.println("(DEFAULT, '" +consulta+"', '"+fecha+"', '"+fecha2+"', '"+fecha3+"', '"+estado+"', "+tipopago+", "+habitacion+", null, "+dia2+"),");
+			}
+			else {
+				System.out.println("(DEFAULT, '" +consulta+"', '"+fecha+"', '"+fecha2+"', '"+fecha3+"', '"+estado+"', "+tipopago+", "+habitacion+", "+segundos+", "+dia2+"),");
+			
+			}
+			
+		}
 	}
 }

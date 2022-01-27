@@ -36,5 +36,29 @@ public class Trabajador {
 	}
 	
 	
+	//Cálculos
+	
+	public double calcularPaga () {
+		return 0.0;
+	}
+	
+	//IMPORTANTE: MAL EJEMPLO PARA AHORRAR CALCULOS:
+	/*
+	 * public double calcularPaga () {
+		return (1200-1200*20/100)+35*23;
+	}
+	
+	//Luego en la clase heredada consulor:
+	 * 
+	 *public double () {
+	 * 	return (1200-1200*20/100)+35*23 + horas*tarifa;
+	 *}
+	 *
+	 *LO QUE SE HACE ES: 
+	 *
+	 public double () {
+	  	return super.calcularPaga () + horas*tarifa;
+	 }
+	*/
 
 }
