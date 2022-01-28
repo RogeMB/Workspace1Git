@@ -48,17 +48,21 @@ public class Principal {
 					
 					o = new Ordenador (capacidadDiscoDuro, frecuenciaProcesador, precioBase);
 					
-					Principal.imprimirOpcion();
-					opcion=Leer.datoInt();
+					do {
+						Principal.imprimirOpcion();
+						opcion=Leer.datoInt();
+						
+						System.out.println("\nIntroduzca el porcentaje de comisión de venta:");
+						comision=Leer.datoInt();
+						o.calcularPrecioFinal(comision);
+					} while (opcion != salir);
 					
-					while (opcion != opcionUno) {
+					
 						if (opcion==opcionUno) {
-							System.out.println("\nIntroduzca el porcentaje de comisión de venta:");
-							o.calcularPrecioFinal(comision);
+
 						}else {
 							o.calcularPrecioFinal(comision);
 						}
-					}
 				
 					System.out.println(o);
 					break;
