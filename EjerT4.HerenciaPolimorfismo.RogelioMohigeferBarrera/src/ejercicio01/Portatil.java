@@ -11,16 +11,15 @@ public class Portatil extends Ordenador {
 		this.descuento = descuento;
 	}
 	
-
-	//ToString
+	
 	@Override
 	public String toString() {
-		return super.toString() + " Portatil [descuento=" + descuento + "]";
+		return super.toString() + "Portatil [descuento=" + descuento + "%]";
 	}
 	
 	
 	//GettersSetters
-	public int getDescuento() {
+	public double getDescuento() {
 		return descuento;
 	}
 	
@@ -32,6 +31,7 @@ public class Portatil extends Ordenador {
 	public double calcularPrecioFinal (int comision) {
 		int uno = 1;
 		int divisor = 100;
-		return super.calcularPrecioFinal(comision) * (uno - this.descuento/divisor);
+		
+		return super.calcularPrecioFinal(comision) * ((double)uno - (this.descuento/(double)divisor));
 	}
 }

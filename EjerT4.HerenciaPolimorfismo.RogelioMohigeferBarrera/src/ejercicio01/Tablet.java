@@ -1,6 +1,7 @@
 package ejercicio01;
 
 public class Tablet extends Ordenador {
+	
 	private double precioSeguroPantalla;
 
 
@@ -15,9 +16,9 @@ public class Tablet extends Ordenador {
 	//ToString
 	@Override
 	public String toString() {
-		return super.toString() + " Tablet [precioSeguroPantalla=" + precioSeguroPantalla + "]";
+		return super.toString() + " Tablet [Precio del seguro pantalla=" + precioSeguroPantalla + "€]";
 	}
-
+	//el toString es un rollo, te imprime dos objetos diferentes en lugar de uno 
 
 
 	//GettersSetters

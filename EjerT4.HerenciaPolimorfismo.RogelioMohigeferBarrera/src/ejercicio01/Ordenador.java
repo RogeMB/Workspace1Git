@@ -19,8 +19,8 @@ public class Ordenador {
 	//ToString
 	@Override
 	public String toString() {
-		return "Ordenador [capacidadDiscoDuro=" + capacidadDiscoDuro + ", frecuenciaProcesador=" + frecuenciaProcesador
-				+ ", precioBase=" + precioBase + "]";
+		return "\nOrdenador [Capacidad disco duro=" + capacidadDiscoDuro + " Gb, frecuencia del procesador=" + frecuenciaProcesador
+				+ " GHz, precio base=" + precioBase + " €]";
 	}
 
 
@@ -53,9 +53,9 @@ public class Ordenador {
 	//Cálculos
 	public double calcularPrecioFinal (int comision) {
 		int uno = 1;
-		double divisor = 100.0;
+		double cien = 100.0;
 		
-		return this.precioBase * (uno + comision/divisor);
+		return Math.round(this.precioBase * (uno + comision/cien)*cien)/cien;
 	}
 	
 }

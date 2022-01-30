@@ -19,8 +19,8 @@ public class Principal {
 			al público de un objeto de cada tipo (un ordenador, una tablet y un portátil).
 		 * */
 		
-		int opcionUno = 1;
-		int descuento, comision = 0, opcion = 0, salir = 0; 
+		int cero = 0;
+		int descuento = 0, comision = 0, opcion = 0, salir = 0; 
 		double capacidadDiscoDuro, precioBase, frecuenciaProcesador, precioSeguroPantalla;
 		
 		Ordenador o;
@@ -35,7 +35,7 @@ public class Principal {
 			
 			switch (opcion) {
 				case 0:
-					System.out.println("\t\tGracias, hasta pronto."
+					System.out.println("\t\t    Gracias, hasta pronto."
 							+ "\n\t\t======PROGRAMA TERMINADO======");
 					break;
 				case 1:
@@ -49,21 +49,14 @@ public class Principal {
 					o = new Ordenador (capacidadDiscoDuro, frecuenciaProcesador, precioBase);
 					
 					do {
-						Principal.imprimirOpcion();
-						opcion=Leer.datoInt();
-						
-						System.out.println("\nIntroduzca el porcentaje de comisión de venta:");
+						Principal.imprimirComision();
 						comision=Leer.datoInt();
-						o.calcularPrecioFinal(comision);
-					} while (opcion != salir);
-					
-					
-						if (opcion==opcionUno) {
-
-						}else {
-							o.calcularPrecioFinal(comision);
+						if (comision < cero) {
+							System.out.println("\t***ERROR***Introduzca un valor válido.");
 						}
-				
+					} while (comision < cero);
+					
+					o.setPrecioBase(o.calcularPrecioFinal(comision));
 					System.out.println(o);
 					break;
 					
@@ -79,14 +72,15 @@ public class Principal {
 					
 					t = new Tablet (capacidadDiscoDuro, frecuenciaProcesador, precioBase, precioSeguroPantalla);
 					
-					Principal.imprimirOpcion();
-					opcion=Leer.datoInt();
-					if (opcion==opcionUno) {
-						System.out.print("\nIntroduzca el porcentaje de comisión de venta:");
-						t.calcularPrecioFinal(comision);
-					}else {
-						t.calcularPrecioFinal(comision);
-					}
+					do {
+						Principal.imprimirComision();
+						comision=Leer.datoInt();
+						if (comision < cero) {
+							System.out.println("\t***ERROR***Introduzca un valor válido.");
+						}
+					} while (comision < cero);
+					
+					t.setPrecioBase(t.calcularPrecioFinal(comision));
 					System.out.println(t);
 					break;
 					
@@ -104,19 +98,21 @@ public class Principal {
 					p = new Portatil (capacidadDiscoDuro, frecuenciaProcesador, precioBase, descuento);
 					
 					
-					Principal.imprimirOpcion();
-					opcion=Leer.datoInt();
-					if (opcion==opcionUno) {
-						System.out.print("\nIntroduzca el porcentaje de comisión de venta:");
-						p.calcularPrecioFinal(comision);
-					}else {
-						p.calcularPrecioFinal(comision);
-					}
+					do {
+						Principal.imprimirComision();
+						comision=Leer.datoInt();
+						if (comision < cero) {
+							System.out.println("\t***ERROR***Introduzca un valor válido.");
+						}
+					} while (comision < cero);
+	
+					p.setPrecioBase(p.calcularPrecioFinal(comision));
 					System.out.println(p);
+					
 					break;
 					
 					default:
-						System.out.println("***ERROR***. Diga una opción válida.");
+						System.out.println("\t***ERROR***. Diga una opción válida.");
 			}
 			
 		} while (opcion != salir);
@@ -134,10 +130,10 @@ public class Principal {
 		
 	}
 	
-	public static void imprimirOpcion () {
-		System.out.print("\n¿Este producto tendrá comisión de venta por parte del vendedor?"
-				+ "\nPulse 1 si tiene comisión."
-				+ "\nPulse cualquier otro si no tiene comisión.");
+	public static void imprimirComision () {
+		System.out.print("\nIntroduzca la comisión de venta del producto, a partir de 0 (sin comisión) "
+				+ "en adelante (sea cauto)."
+				+ "Respuesta: ");
 	}
 
 }
