@@ -51,10 +51,10 @@ public class Principal {
 					do {
 						Principal.imprimirComision();
 						comision=Leer.datoInt();
-						if (comision < cero) {
+						if (comision < cero) 
 							System.out.println("\t***ERROR***Introduzca un valor válido.");
-						}
-					} while (comision < cero);
+						
+					}while (comision < cero);
 					
 					o.setPrecioBase(o.calcularPrecioFinal(comision));
 					System.out.println(o);
@@ -75,10 +75,10 @@ public class Principal {
 					do {
 						Principal.imprimirComision();
 						comision=Leer.datoInt();
-						if (comision < cero) {
+						if (comision < cero) 
 							System.out.println("\t***ERROR***Introduzca un valor válido.");
-						}
-					} while (comision < cero);
+						
+					}while (comision < cero);
 					
 					t.setPrecioBase(t.calcularPrecioFinal(comision));
 					System.out.println(t);
@@ -97,25 +97,23 @@ public class Principal {
 					
 					p = new Portatil (capacidadDiscoDuro, frecuenciaProcesador, precioBase, descuento);
 					
-					
 					do {
 						Principal.imprimirComision();
 						comision=Leer.datoInt();
-						if (comision < cero) {
+						if (comision < cero) 
 							System.out.println("\t***ERROR***Introduzca un valor válido.");
-						}
-					} while (comision < cero);
+						
+					}while (comision < cero);
 	
 					p.setPrecioBase(p.calcularPrecioFinal(comision));
 					System.out.println(p);
-					
 					break;
 					
 					default:
 						System.out.println("\t***ERROR***. Diga una opción válida.");
 			}
 			
-		} while (opcion != salir);
+		}while (opcion != salir);
 
 	}
 	
