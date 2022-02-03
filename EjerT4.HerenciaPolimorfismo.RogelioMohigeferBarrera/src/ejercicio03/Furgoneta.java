@@ -3,19 +3,21 @@ package ejercicio03;
 public class Furgoneta extends VehiculoMotor{
 	
 	private int cargaUtil;
+	private int numeroPlazas;
 	
 	//Constructores
 	public Furgoneta(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible,
-			int cargaUtil) {
-		super(cilindrada, caballos, cilindros, tipoCombustible);
+			String bastidor, boolean activo, int cargaUtil, int numeroPlazas) {
+		super(cilindrada, caballos, cilindros, tipoCombustible, bastidor, activo);
 		this.cargaUtil = cargaUtil;
+		this.numeroPlazas = numeroPlazas;
 	}
 
 	
 	//ToString
 	@Override
 	public String toString() {
-		return super.toString() + "Furgoneta [cargaUtil=" + cargaUtil + "]";
+		return super.toString() + "Furgoneta [cargaUtil=" + cargaUtil + ", numeroPlazas=" + numeroPlazas + "]";
 	}
 	
 
@@ -27,8 +29,16 @@ public class Furgoneta extends VehiculoMotor{
 	public void setCargaUtil(int cargaUtil) {
 		this.cargaUtil = cargaUtil;
 	}
-
 	
+	public int getNumeroPlazas() {
+		return numeroPlazas;
+	}
+
+	public void setNumeroPlazas(int numeroPlazas) {
+		this.numeroPlazas = numeroPlazas;
+	}
+
+
 	//Métodos
 	public double calcularIncrementoCarga () {
 		double importe = 0.0;
@@ -44,12 +54,28 @@ public class Furgoneta extends VehiculoMotor{
 		return importe;
 	}
 	
+	public int incrementoNumeroPlazas () {
+		int incrementoPorPlazas = 0;
+		if (numeroPlazas == 1) {
+			incrementoPorPlazas = 1;
+		}else if (numeroPlazas > 1 && numeroPlazas <=2) {
+			incrementoPorPlazas = 3;
+		}else if (numeroPlazas > 2 && numeroPlazas <=3) {
+			incrementoPorPlazas = 5;
+		}else if (numeroPlazas > 3 && numeroPlazas <=5) {
+			incrementoPorPlazas = 8;
+		}else if (numeroPlazas > 5 && numeroPlazas <=8) {
+			incrementoPorPlazas = 13;
+		}
+		return incrementoPorPlazas;
+	}
+	
 	
 
 	@Override
 	public double calcularImpuestoCirculacion() {
 		// TODO Auto-generated method stub
-		return super.calcularImpuestoCirculacion() + calcularIncrementoCarga();
+		return super.calcularImpuestoCirculacion() + calcularIncrementoCarga() + incrementoNumeroPlazas();
 	}
 	
 	

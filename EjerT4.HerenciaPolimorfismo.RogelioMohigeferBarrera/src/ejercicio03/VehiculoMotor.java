@@ -17,22 +17,26 @@ public class VehiculoMotor {
 	private double caballos;
 	private int cilindros;
 	private TipoCombustible tipoCombustible;
+	private String bastidor;
+	private boolean activo;
 	
-	//Constructores
-	public VehiculoMotor(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible) {
+	//Constructores	
+	public VehiculoMotor(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible,
+			String bastidor, boolean activo) {
 		super();
 		this.cilindrada = cilindrada;
 		this.caballos = caballos;
 		this.cilindros = cilindros;
 		this.tipoCombustible = tipoCombustible;
+		this.bastidor = bastidor;
+		this.activo = activo;
 	}
 
-	
 	//ToString
 	@Override
 	public String toString() {
 		return "VehiculoMotor [cilindrada=" + cilindrada + ", caballos=" + caballos + ", cilindros=" + cilindros
-				+ ", tipoCombustible=" + tipoCombustible + "]";
+				+ ", tipoCombustible=" + tipoCombustible + ", bastidor=" + bastidor + ", activo=" + activo + "]";
 	}
 
 
@@ -68,9 +72,23 @@ public class VehiculoMotor {
 	public void setCilindros(int cilindros) {
 		this.cilindros = cilindros;
 	}
+	
+	public String getBastidor() {
+		return bastidor;
+	}
 
-	
-	
+	public void setBastidor(String bastidor) {
+		this.bastidor = bastidor;
+	}
+
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
 	//Métodos
 	public double calculoPotencia () {
 		double constanteKW =  1.341;
@@ -99,13 +117,13 @@ public class VehiculoMotor {
 	public double importeCM3 () {
 		double importe = 0.0;
 		if (this.cilindrada >= 0 && this.cilindrada <= 125.00) {
-			importe = 4.12;
+			importe = 1.618;
 		}else if (this.cilindrada > 125.0 && this.cilindrada <= 250.00) {
-			importe = 8.35;
+			importe = 2.618;
 		}else if (this.cilindrada > 250.0 && this.cilindrada <= 500.00) {
-			importe = 14.73;
+			importe = 6.834;
 		}else {
-			importe = 19.99;
+			importe = 46.971;
 		}
 		return importe;
 	}

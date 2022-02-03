@@ -6,11 +6,11 @@ public class Motocicleta extends VehiculoMotor {
 	
 	//Constructores
 	public Motocicleta(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible,
-			double incremento) {
-		super(cilindrada, caballos, cilindros, tipoCombustible);
-		this.incremento = 1.60;
+			String bastidor,  boolean activo, double incremento) {
+		super(cilindrada, caballos, cilindros, tipoCombustible, bastidor, activo);
+		this.incremento = incremento;
 	}
-	
+
 	//ToString
 	@Override
 	public String toString() {
