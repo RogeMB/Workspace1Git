@@ -1,6 +1,5 @@
 package ejercicio09;
 
-import lectura.Leer;
 
 public class Maquina {
 	private double recaudacion = 0;

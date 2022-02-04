@@ -5,20 +5,21 @@ import java.util.Arrays;
 public class Gestion {
 	
 	private VehiculoMotor listado [];
+	private String contrasenna;
 
 	
 	//Constructores
-	public Gestion(VehiculoMotor[] listado) {
+	public Gestion(VehiculoMotor[] listado, String contrasenna) {
 		super();
 		this.listado = listado;
+		this.contrasenna = "elmejordiademivida";
 	}
 
-	
 	
 	//ToString
 	@Override
 	public String toString() {
-		return "Gestion [listado=" + Arrays.toString(listado) + "]";
+		return "Gestion [listado=" + Arrays.toString(listado) + ", contrasenna=" + contrasenna + "]";
 	}
 	
 	
@@ -32,48 +33,123 @@ public class Gestion {
 		this.listado = listado;
 	}
 	
-	
-	
+	public String getContrasenna() {
+		return contrasenna;
+	}
+
+	public void setContrasenna(String contrasenna) {
+		this.contrasenna = contrasenna;
+	}
+
+
+
 	//Métodos
+	public double calcularUnVehiculo (VehiculoMotor vm) { //hay que añadir incremento
+		return vm.calcularImpuestoCirculacion();
+	}
+	
+	public double calcularTotal () {  //hay que añadir incremento
+		double total = .0;
+		for (int i = 0; i < listado.length; i++) {
+			total=total+listado[i].calcularImpuestoCirculacion();
+		}
+		return total;
+	}
+	
+	public double calcularTotalOtraforma () { //hay que añadir incremento
+		double total = .0;
+		for (int i = 0; i < listado.length; i++) {
+			total=total+calcularUnVehiculo(listado[i]);
+		}
+		return total;
+	}
+	
+	
+	
 	public void annadirVehiculo (int posicion, VehiculoMotor vm) {
 		listado [posicion] = vm;
 	}
 	
-	public VehiculoMotor buscarVehiculo (String bastidor) {
-		int i = 0;
+	public int buscarVehiculo (String bastidor) { //habría que devolver un vehiculo completo en lugar de un int
+		int j = 0;
 		boolean encontrado = false;
 
-		while (i < listado.length && !encontrado) {
-			VehiculoMotor vm = listado [i];
+		while (j < listado.length && !encontrado) {
+			VehiculoMotor vm = listado [j];
 			if (vm.getBastidor().equalsIgnoreCase(bastidor))
 				encontrado = true;
 			else
-				i++;
+				j++;
 		}
 		if (encontrado)
-			return listado[i];
+			return j;
 		else
-			return null;
+			return -1;
 	}
 	
-	public void eliminarVehiculo (String bastidor, VehiculoMotor vm) {
-		
-	}
-	
-	public void editarVehiculo (VehiculoMotor vm) {
-		
-	}
-	
-	public VehiculoMotor [] muestraListado () {
-		return listado;
-	}
-	
-	public void muestraActivos () {
-		for (int i = 0; i < listado.length; i++) {
-			if (.isac)
-			System.out.println((i+1) + ". " + listado[i]);
+	public void eliminarVehiculo (String bastidor) {
+		int elegido = buscarVehiculo (bastidor);
+		if (elegido >= 0) {
+			listado [elegido].setActivo(false);
 		}
-		
 	}
+	
+	public void editarVehiculo (String bastidor, double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible) {
+		int elegido = buscarVehiculo (bastidor);
+		if (elegido >= 0) {
+			listado [elegido].setCilindrada(cilindrada);
+			listado [elegido].setCaballos(caballos);
+			listado [elegido].setCilindros(cilindros);
+			listado [elegido].setTipoCombustible(tipoCombustible);
+		}
+	}
+	
+	public void mostrarSeleccionado (String bastidor) {
+		int elegido = buscarVehiculo (bastidor);
+		System.out.println(listado[elegido]);
+	}
+	
+	public void mostrarActivos () {
+		for (int i = 0; i < listado.length && listado [i] != null; i++) {
+			if (listado[i].isActivo()) 
+				System.out.println((i+1)+ ". " +listado[i]);
+		}
+	}
+	
+	public void mostrarToitosTos () {
+		for (int i = 0; i < listado.length; i++) {
+			System.out.println((i+1)+ ". " +listado[i]);
+		}
+	}
+	
+	
+	public void comprobarContrasenna (String clave) {
+		int intentos = 3;
+		do{
+			if (clave.equals(getContrasenna())){
+				System.out.println("\t\t===Contraseña correcta===");
+			}else {
+				intentos--;
+				System.out.println("\t\t***ERROR***. Te quedan " +intentos+ " intentos.");
+			}
+		}while (clave != getContrasenna () && intentos > 0);
+		
+		if (intentos == 0) {
+			do {
+				System.out.println("\t\t¡Ah, ah, ah! ¡No has dicho la palabra mágica!");
+			}while (intentos == Math.PI);
+		}
+	}
+	
+	
+	public void cambiarContrasenna (String nuevaClave) {
+		do {
+			System.out.println("\t\t***ERROR***. Prueba con otra.");
+		} while (nuevaClave.length()>20 && nuevaClave.length()<8);
+		setContrasenna(nuevaClave);
+		System.out.println("\t\t===Contraseña cambiada correctamente.===");
+	}
+	
+
 
 }

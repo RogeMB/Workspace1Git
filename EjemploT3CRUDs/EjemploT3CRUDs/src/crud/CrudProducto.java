@@ -121,10 +121,8 @@ public class CrudProducto {
 	public void editPrecio(String codigo, int precioN) {
 		int index = findByIdV2(codigo);
 		if (index >= 0) {
-			lista[index].setPrecioUnitario(precioN);
-			
+			lista[index].setPrecioUnitario(precioN);		
 		} 
-
 	}
 
 	/*En arrays no se suele borrar del todo un objeto sino que se "desactiva" por si luego hace falta, por eso para nosotros, de momento, borrar seará

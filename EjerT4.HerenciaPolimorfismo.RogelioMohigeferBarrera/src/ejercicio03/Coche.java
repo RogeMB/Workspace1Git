@@ -33,7 +33,7 @@ public class Coche extends VehiculoMotor {
 	//Métodos
 	
 	@Override
-	public double importeCM3() {
+	public double importeCM3(/*double incremento*/) {
 		// TODO Auto-generated method stub
 		return super.importeCM3() * incremento;
 	}

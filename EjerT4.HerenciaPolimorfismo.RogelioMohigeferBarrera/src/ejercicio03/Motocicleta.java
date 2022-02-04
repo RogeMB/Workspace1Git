@@ -30,7 +30,7 @@ public class Motocicleta extends VehiculoMotor {
 	
 	//Métodos
 	@Override
-	public double importePotencia() {
+	public double importePotencia(/*double incremento*/) {
 		// TODO Auto-generated method stub
 		return super.importePotencia() * incremento;
 	}
