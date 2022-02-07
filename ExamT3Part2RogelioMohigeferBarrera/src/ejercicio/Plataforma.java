@@ -45,7 +45,7 @@ public class Plataforma {
 	
 	
 	//Calculos
-	
+/*	
 	public void establecerVolumen (int seleccion) {
 		listado [seleccion].setVolumen(listado [seleccion].calcularVolumen());
 	}
@@ -56,8 +56,8 @@ public class Plataforma {
 		}
 		return capacidadtotal;
 	}
-	
-	
+	*/
+	/*
 	public void addDeposito (int posicion, double altura, double radio, int litros, double precio) {
 		
 		if (posicion >= 0 && listado[posicion]==null){
@@ -73,7 +73,14 @@ public class Plataforma {
 		}
 
 	}
+	*/
 	
+	public void addPiso (Deposito d, int posicion) {
+		listado [posicion] = d;
+		/*numero de depositos++ - podemos hacer una variable con el numero de depositos*/
+		/*totalLitros+=d.getPrecioventa*/
+ 		/*agregar deposito y sumar el volumen del deposito al total del numero de litros de toda la plataforma*/
+	}
 	
 	public void posicionOcupada () {
 		System.out.println("\n\t***ERROR***. Posición ocupada.");
@@ -101,14 +108,14 @@ public class Plataforma {
 		}
 		return total;
 	}
-	
+	/*
 	public double gananciaRepsolLleno (double precioLitro) {
 		double total = 0.0;
 		for (int i = 0; i < listado.length; i++) {
 			total += listado[i].getVolumen() * precioLitro;
 		}
 		return total;
-	}
+	}*/
 	
 	public static void bienvenido (String nombre) {
 		System.out.println("\tBienvenido/a, "+nombre+". \n\tEste es el programa Cuanto-Más-Crudo-Mejor"

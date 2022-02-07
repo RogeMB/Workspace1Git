@@ -9,7 +9,7 @@ public class Principal {
 		
 		double precioLitro = 0.70, altura = 0.0, radio = 0.0, precio = 0.0, volumen = 0.0; 
 		int opcion = 0, salir = 0, beneficio = 0, litros = 0, tam = 0, seleccion = 0, uno = 1, cero = 0;
-		Deposito d;
+		Deposito [] d;
 		String nombre ="";
 		Plataforma p;
 		
@@ -20,9 +20,9 @@ public class Principal {
 				+ "la plataforma"
 				+ "\n\tRespuesta: ");
 		tam=Leer.datoInt();
-		
-		p = new Plataforma ();
-		
+		d = new Deposito [tam];
+		p = new Plataforma (d);
+		/*
 		do {
 			Plataforma.imprimirMenu();
 			switch (opcion) {
@@ -79,7 +79,7 @@ public class Principal {
 			
 		}while (opcion != salir);
 		
-		
+		*/
 		
 
 	}

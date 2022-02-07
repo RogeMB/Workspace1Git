@@ -6,7 +6,7 @@ public class Deposito {
 	private double radio;
 	private int litros;
 	private double precio;
-	private double volumen;
+	/*private double volumen;*/
 
 	
 	
@@ -17,7 +17,7 @@ public class Deposito {
 		this.radio = radio;
 		this.litros = litros;
 		this.precio = precio;
-		this.volumen = volumen;
+		/*this.volumen = volumen;*/
 	}
 
 	public Deposito() {
@@ -29,7 +29,7 @@ public class Deposito {
 	@Override
 	public String toString() {
 		return "Deposito [altura=" + altura + ", radio=" + radio + ", litros=" + litros + ", precio=" + precio
-				+ ", volumen=" + volumen + "]";
+				+ /*", volumen=" + volumen + */"]";
 	}
 	
 
@@ -66,7 +66,7 @@ public class Deposito {
 		this.precio = precio;
 	}
 	
-	
+	/*
 	public double getVolumen() {
 		return volumen;
 	}
@@ -74,11 +74,11 @@ public class Deposito {
 	public void setVolumen(double volumen) {
 		this.volumen = volumen;
 	}
-
-
+*/
+	
 	//Calculos
 	public double calcularVolumen () {
-		return altura*Math.PI*Math.pow(radio, 2); 
+		return altura*Math.PI*Math.pow(radio, 2)*1000; 
 	}
 	
 }
