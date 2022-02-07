@@ -44,22 +44,22 @@ public class Gestion {
 
 
 	//Métodos
-	public double calcularUnVehiculo (VehiculoMotor vm) { //hay que añadir incremento
-		return vm.calcularImpuestoCirculacion();
+	public double calcularUnVehiculo (VehiculoMotor vm, double incremento, double incremento2) { //hay que añadir incremento
+		return vm.calcularImpuestoCirculacion(incremento, incremento2);
 	}
 	
-	public double calcularTotal () {  //hay que añadir incremento
+	public double calcularTotal (double incremento, double incremento2) {  //hay que añadir incremento
 		double total = .0;
 		for (int i = 0; i < listado.length; i++) {
-			total=total+listado[i].calcularImpuestoCirculacion();
+			total=total+listado[i].calcularImpuestoCirculacion(incremento, incremento2);
 		}
 		return total;
 	}
 	
-	public double calcularTotalOtraforma () { //hay que añadir incremento
+	public double calcularTotalOtraforma (double incremento, double incremento2) { //hay que añadir incremento
 		double total = .0;
 		for (int i = 0; i < listado.length; i++) {
-			total=total+calcularUnVehiculo(listado[i]);
+			total=total+calcularUnVehiculo(listado[i], incremento, incremento2);
 		}
 		return total;
 	}
@@ -142,12 +142,15 @@ public class Gestion {
 	}
 	
 	
-	public void cambiarContrasenna (String nuevaClave) {
-		do {
+	public boolean cambiarContrasenna (String nuevaClave) {
+		if (nuevaClave.length()<=20 && nuevaClave.length()>=8) {
+			setContrasenna(nuevaClave);
+			System.out.println("\t\t===Contraseña cambiada correctamente.===");
+			return true;
+		}else {
 			System.out.println("\t\t***ERROR***. Prueba con otra.");
-		} while (nuevaClave.length()>20 && nuevaClave.length()<8);
-		setContrasenna(nuevaClave);
-		System.out.println("\t\t===Contraseña cambiada correctamente.===");
+			return false;
+		}
 	}
 	
 

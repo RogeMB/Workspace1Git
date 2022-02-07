@@ -2,37 +2,28 @@ package ejercicio03;
 
 public class Motocicleta extends VehiculoMotor {
 	
-	private double incremento;
 	
 	//Constructores
 	public Motocicleta(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible,
-			String bastidor,  boolean activo, double incremento) {
+			String bastidor,  boolean activo) {
 		super(cilindrada, caballos, cilindros, tipoCombustible, bastidor, activo);
-		this.incremento = incremento;
+
 	}
 
 	//ToString
 	@Override
 	public String toString() {
-		return super.toString() + "Motocicleta [incremento=" + incremento + "]";
+		return "Motocicleta []";
 	}
 
-	
-	//GettersSetters
-	public double getIncremento() {
-		return incremento;
-	}
-
-	public void setIncremento(double incremento) {
-		this.incremento = incremento;
-	}
 	
 	
 	//Métodos
 	@Override
-	public double importePotencia(/*double incremento*/) {
+	public double importePotencia(double incremento) {
 		// TODO Auto-generated method stub
-		return super.importePotencia() * incremento;
+		double divisor = 0.0;
+		return super.importePotencia(incremento) * (1+incremento/divisor);
 	}
 
 }

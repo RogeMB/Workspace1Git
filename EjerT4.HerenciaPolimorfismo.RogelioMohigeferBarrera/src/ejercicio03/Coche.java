@@ -2,40 +2,41 @@ package ejercicio03;
 
 public class Coche extends VehiculoMotor {
 	
-	private double incremento;
 	
 	//Constructores
 	public Coche(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible, 
-			String bastidor, boolean activo, double incremento) {
+			String bastidor, boolean activo) {
 		super(cilindrada, caballos, cilindros, tipoCombustible, bastidor, activo);
-		this.incremento = incremento;
 	}
 
-
 	
+
 	//ToString
 	@Override
 	public String toString() {
-		return super.toString() + "Coche [incremento=" + incremento + "]";
+		return super.toString() + "Coche []";
 	}
 
-	
-	//GettersSetters
-	public double getIncremento() {
-		return incremento;
-	}
 
-	public void setIncremento(double incremento) {
-		this.incremento = incremento;
-	}
 
 
 	//Métodos
 	
 	@Override
-	public double importeCM3(/*double incremento*/) {
+	public double importeCM3(double incremento) {
 		// TODO Auto-generated method stub
-		return super.importeCM3() * incremento;
+		double divisor = 100.00;
+		return super.importeCM3(incremento) * (1+ incremento/divisor);
 	}
+
+
+
+	@Override
+	public double calcularImpuestoCirculacion() {
+		// TODO Auto-generated method stub
+		return super.calcularImpuestoCirculacion(105)+ super.calculoCM3()*0.25;1.7
+	}
+	
+	
 	
 }

@@ -91,7 +91,7 @@ public class VehiculoMotor {
 	}
 	
 	
-	public double importePotencia (/*double incremento*/) {
+	public double importePotencia () {
 		double importe = 0.0;
 		if (calculoPotencia() >= 0 && calculoPotencia() < 70.00) {
 			importe = 30.83;
@@ -104,7 +104,7 @@ public class VehiculoMotor {
 	}
 	
 	
-	public double importeCM3 (/*double incremento*/) {
+	public double importeCM3 () {
 		double importe = 0.0;
 		if (this.cilindrada >= 0 && this.cilindrada <= 125.00) {
 			importe = 1.618;
