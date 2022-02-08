@@ -80,7 +80,7 @@ public class VehiculoMotor {
 	}
 
 	//Métodos
-	public double calculoPotencia () {
+	public double calculoPotenciaHP () {
 		double constanteKW =  1.341;
 		double constanteHP = 0.746;
 		return (this.caballos*constanteKW)/constanteHP;
@@ -93,9 +93,9 @@ public class VehiculoMotor {
 	
 	public double importePotencia () {
 		double importe = 0.0;
-		if (calculoPotencia() >= 0 && calculoPotencia() < 70.00) {
+		if (calculoPotenciaHP() >= 0 && calculoPotenciaHP() < 70.00) {
 			importe = 30.83;
-		}else if (calculoPotencia() >= 70.00 && calculoPotencia() <= 119.99) {
+		}else if (calculoPotenciaHP() >= 70.00 && calculoPotenciaHP() <= 119.99) {
 			importe = 50.42;
 		}else {
 			importe = 80.64;
@@ -106,11 +106,11 @@ public class VehiculoMotor {
 	
 	public double importeCM3 () {
 		double importe = 0.0;
-		if (this.cilindrada >= 0 && this.cilindrada <= 125.00) {
+		if (calculoCM3() >= 0 && calculoCM3() <= 125.00) {
 			importe = 1.618;
-		}else if (this.cilindrada > 125.0 && this.cilindrada <= 250.00) {
+		}else if (calculoCM3() > 125.0 && calculoCM3() <= 250.00) {
 			importe = 2.618;
-		}else if (this.cilindrada > 250.0 && this.cilindrada <= 500.00) {
+		}else if (calculoCM3() > 250.0 && calculoCM3() <= 500.00) {
 			importe = 6.834;
 		}else {
 			importe = 46.971;
@@ -159,7 +159,7 @@ public class VehiculoMotor {
 	}
 	
 	
-	public double calcularImpuestoCirculacion () {
+	public double calcularImpuestoCirculacion (int incremento) {
 		return (importePotencia () + importeCM3 ()) * calculoSuplemento();
 	}
 

@@ -20,10 +20,12 @@ public class Motocicleta extends VehiculoMotor {
 	
 	//Métodos
 	@Override
-	public double importePotencia(double incremento) {
+	public double calcularImpuestoCirculacion(int incremento) {
 		// TODO Auto-generated method stub
-		double divisor = 0.0;
-		return super.importePotencia(incremento) * (1+incremento/divisor);
+		double divisor = 100.00; 
+		return super.calcularImpuestoCirculacion(incremento) + incremento * (super.calculoPotenciaHP()/divisor);
 	}
+
+	
 
 }

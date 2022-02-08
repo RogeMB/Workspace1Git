@@ -2,6 +2,7 @@ package ejercicio03;
 
 import java.util.Arrays;
 
+
 public class Gestion {
 	
 	private VehiculoMotor listado [];
@@ -44,22 +45,24 @@ public class Gestion {
 
 
 	//Métodos
-	public double calcularUnVehiculo (VehiculoMotor vm, double incremento, double incremento2) { //hay que añadir incremento
-		return vm.calcularImpuestoCirculacion(incremento, incremento2);
+	public double calcularUnVehiculo (VehiculoMotor vm, int incremento) { //hay que añadir incremento
+		return vm.calcularImpuestoCirculacion(incremento);
 	}
 	
-	public double calcularTotal (double incremento, double incremento2) {  //hay que añadir incremento
+	
+	public double calcularTotal (int incremento) {  //hay que añadir incremento
 		double total = .0;
 		for (int i = 0; i < listado.length; i++) {
-			total=total+listado[i].calcularImpuestoCirculacion(incremento, incremento2);
+			total=total+listado[i].calcularImpuestoCirculacion(incremento);
 		}
 		return total;
 	}
 	
-	public double calcularTotalOtraforma (double incremento, double incremento2) { //hay que añadir incremento
+	
+	public double calcularTotalOtraforma (int incremento) { //hay que añadir incremento
 		double total = .0;
 		for (int i = 0; i < listado.length; i++) {
-			total=total+calcularUnVehiculo(listado[i], incremento, incremento2);
+			total=total+calcularUnVehiculo(listado[i], incremento);
 		}
 		return total;
 	}
@@ -69,6 +72,8 @@ public class Gestion {
 	public void annadirVehiculo (int posicion, VehiculoMotor vm) {
 		listado [posicion] = vm;
 	}
+	
+	
 	
 	public int buscarVehiculo (String bastidor) { //habría que devolver un vehiculo completo en lugar de un int
 		int j = 0;
@@ -87,12 +92,37 @@ public class Gestion {
 			return -1;
 	}
 	
+	
+	
+	public VehiculoMotor buscarVehiculoDos (String bastidor) {
+		int j = 0;
+		boolean encontrado = false;
+		
+		while (j < listado.length && !encontrado) {
+			VehiculoMotor vm = listado [j];
+		
+			if (vm.getBastidor().equals(bastidor)){
+				encontrado = true;
+			}else {
+				j++;
+			}
+		}
+		
+		if (encontrado) {
+			return listado [j];
+		}else {
+			return null;
+		}
+	}
+	
+	
 	public void eliminarVehiculo (String bastidor) {
 		int elegido = buscarVehiculo (bastidor);
 		if (elegido >= 0) {
 			listado [elegido].setActivo(false);
 		}
 	}
+	
 	
 	public void editarVehiculo (String bastidor, double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible) {
 		int elegido = buscarVehiculo (bastidor);
@@ -104,10 +134,12 @@ public class Gestion {
 		}
 	}
 	
+	
 	public void mostrarSeleccionado (String bastidor) {
 		int elegido = buscarVehiculo (bastidor);
 		System.out.println(listado[elegido]);
 	}
+	
 	
 	public void mostrarActivos () {
 		for (int i = 0; i < listado.length && listado [i] != null; i++) {
@@ -115,6 +147,7 @@ public class Gestion {
 				System.out.println((i+1)+ ". " +listado[i]);
 		}
 	}
+	
 	
 	public void mostrarToitosTos () {
 		for (int i = 0; i < listado.length; i++) {

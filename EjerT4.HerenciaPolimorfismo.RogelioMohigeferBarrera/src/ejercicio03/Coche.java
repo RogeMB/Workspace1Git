@@ -21,20 +21,11 @@ public class Coche extends VehiculoMotor {
 
 
 	//Métodos
-	
 	@Override
-	public double importeCM3(double incremento) {
+	public double calcularImpuestoCirculacion(int incremento) {
 		// TODO Auto-generated method stub
 		double divisor = 100.00;
-		return super.importeCM3(incremento) * (1+ incremento/divisor);
-	}
-
-
-
-	@Override
-	public double calcularImpuestoCirculacion() {
-		// TODO Auto-generated method stub
-		return super.calcularImpuestoCirculacion(105)+ super.calculoCM3()*0.25;1.7
+		return super.calcularImpuestoCirculacion(incremento)+ incremento * (super.calculoCM3()/divisor);
 	}
 	
 	

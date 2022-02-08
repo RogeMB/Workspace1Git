@@ -73,9 +73,9 @@ public class Furgoneta extends VehiculoMotor{
 	
 
 	@Override
-	public double calcularImpuestoCirculacion(double incremento, double incremento2) {
+	public double calcularImpuestoCirculacion(int incremento) {
 		// TODO Auto-generated method stub
-		return super.calcularImpuestoCirculacion(incremento, incremento2) + calcularIncrementoCarga() + incrementoNumeroPlazas();
+		return super.calcularImpuestoCirculacion(incremento) + calcularIncrementoCarga() + incrementoNumeroPlazas();
 	}
 	
 	
