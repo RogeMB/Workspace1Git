@@ -1,20 +1,37 @@
+/**
+ * 	Los vehículos a motor pagan un determinado impuesto de circulación. La cantidad a pagar depende
+	de la cilindrada, caballos y tipo de combustible. Crear un programa para calcular la cantidad que debe
+	pagar un vehículo dependiendo de sus características. (Los vehículos a motor pueden ser motocicletas,
+	coches y furgonetas).
+	El impuesto se calcula con una cantidad fija por el simple hecho de ser un vehículo con motor, más el
+	60 % de la potencia en el caso de las motocicletas, más una cantidad fija a las furgonetas por ser
+	transporte de mercancías y más el 25 % de la cilindrada para los coches.
+	La jerarquía de clases no tiene mucho sentido en este ejemplo, pero está puesto para reescribir métodos.
+	Probar todo en un main sencillo.
+ */
+
 package ejercicio03;
+
 
 import lectura.Leer;
 
+/**
+ * Main class contains a menu and runs the entire software.
+ * @since: 2022-02-01
+ * @author mohigefer.barog22
+ * @version: JDK 11. Minimum: JDK 5 
+ */
 public class Principal {
 
+	/**
+	 * @param args
+	 * @return void
+	 * @throws Exception in cases 1, 2, 3, 4. Haven't finished yet. 
+	 * @see public static void imprimirMenu
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*Los vehículos a motor pagan un determinado impuesto de circulación. La cantidad a pagar depende
-		de la cilindrada, caballos y tipo de combustible. Crear un programa para calcular la cantidad que debe
-		pagar un vehículo dependiendo de sus características. (Los vehículos a motor pueden ser motocicletas,
-		coches y furgonetas).
-		El impuesto se calcula con una cantidad fija por el simple hecho de ser un vehículo con motor, más el
-		60 % de la potencia en el caso de las motocicletas, más una cantidad fija a las furgonetas por ser
-		transporte de mercancías y más el 25 % de la cilindrada para los coches.
-		La jerarquía de clases no tiene mucho sentido en este ejemplo, pero está puesto para reescribir métodos.
-		Probar todo en un main sencillo.*/
+	
 		
 		TipoCombustible tipoCombustible = null;
 		String clave, nuevaClave, nuevaClaveDos, bastidor;
@@ -35,6 +52,7 @@ public class Principal {
 		g.comprobarContrasenna(clave);
 		imprimirMenu();
 		opcion=Leer.datoInt();
+		
 		
 		switch (opcion) {
 		case 0: 
@@ -103,10 +121,23 @@ public class Principal {
 	}
 	
 	//Helpers
+	
+		/**
+		 * @param void
+		 * @return void
+		 * @throws No exception found
+		 * @see public static void imprimirMenu
+		 */
 		public static void imprimirBienvenida () {
 			System.out.print("\t\tBIENVENIDO AL PROGRAMA B-iCulo.\nIntroduzca la contraseña para continuar: ");
 		}
 		
+		/**
+		 * @param void
+		 * @return void
+		 * @throws No exception found 
+		 * @see public static void imprimirMenu
+		 */
 		public static void imprimirMenu () {
 			System.out.print("\n\t---Proceso de instanciación iniciado---\nIntroduzca una opción entre las siguientes: "
 					+ "\n\t Pulse 0 para salir del programa."
@@ -123,9 +154,4 @@ public class Principal {
 			
 		}
 		
-		public static void imprimirComision () {
-			System.out.print("\nIntroduzca la comisión de venta del producto, a partir de 0 (sin comisión) "
-					+ "en adelante (sea cauto)."
-					+ "Respuesta: ");
-		}
 }

@@ -2,6 +2,12 @@ package ejercicio03;
 
 import java.util.Arrays;
 
+/**
+ * Main class for administrative methods
+ * @version JDK 11, minimum jKD 5
+ * @author mohigefer.barog22
+ *
+ */
 
 public class Gestion {
 	
@@ -9,7 +15,7 @@ public class Gestion {
 	private String contrasenna;
 
 	
-	//Constructores
+	// Constructors
 	public Gestion(VehiculoMotor[] listado, String contrasenna) {
 		super();
 		this.listado = listado;
@@ -17,7 +23,7 @@ public class Gestion {
 	}
 
 	
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return "Gestion [listado=" + Arrays.toString(listado) + ", contrasenna=" + contrasenna + "]";
@@ -25,7 +31,7 @@ public class Gestion {
 	
 	
 
-	//GettersSetteers
+	// GettersSetteers
 	public VehiculoMotor[] getListado() {
 		return listado;
 	}
@@ -44,7 +50,7 @@ public class Gestion {
 
 
 
-	//Métodos
+	// Methods
 	public double calcularUnVehiculo (VehiculoMotor vm, int incremento) { //hay que añadir incremento
 		return vm.calcularImpuestoCirculacion(incremento);
 	}
@@ -68,14 +74,26 @@ public class Gestion {
 	}
 	
 	
-	
+	/**
+	 * 
+	 * @param posicion
+	 * @param vm
+	 * @return add a new position in the array' s memory with a new VehiculoMotor.
+	 * @exception no exception found
+	 * @see VehiculoMotor's constructor
+	 */
 	public void annadirVehiculo (int posicion, VehiculoMotor vm) {
 		listado [posicion] = vm;
 	}
 	
+	/**
+	 * Method that find a position in the array by the bastidor attribute
+	 * @param bastidor
+	 * @return array's position if it is found, -1 if not.
+	 * @see eliminarVehiculo
+	 */
 	
-	
-	public int buscarVehiculo (String bastidor) { //habría que devolver un vehiculo completo en lugar de un int
+	public int buscarVehiculo (String bastidor) { 
 		int j = 0;
 		boolean encontrado = false;
 

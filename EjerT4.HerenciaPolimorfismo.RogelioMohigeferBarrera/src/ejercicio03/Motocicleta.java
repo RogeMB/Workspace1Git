@@ -1,16 +1,21 @@
 package ejercicio03;
-
+/**
+ * Sub class of VehiculoMotor
+ * @version JDK 11. Minimum JDK 5
+ * @see VehiculoMotor package
+ * 
+ */
 public class Motocicleta extends VehiculoMotor {
 	
 	
-	//Constructores
+	// Constructors
 	public Motocicleta(double cilindrada, double caballos, int cilindros, TipoCombustible tipoCombustible,
 			String bastidor,  boolean activo) {
 		super(cilindrada, caballos, cilindros, tipoCombustible, bastidor, activo);
 
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return "Motocicleta []";
@@ -18,7 +23,11 @@ public class Motocicleta extends VehiculoMotor {
 
 	
 	
-	//Métodos
+	// Methods
+	/**
+	 * @see calcularImpuestoCirculacion && importePotencia in VehiculoMotor class
+	 * @return ImpuestoCirculacion with an extra tax amount depending of the power defined in Principal by user
+	 */
 	@Override
 	public double calcularImpuestoCirculacion(int incremento) {
 		// TODO Auto-generated method stub
