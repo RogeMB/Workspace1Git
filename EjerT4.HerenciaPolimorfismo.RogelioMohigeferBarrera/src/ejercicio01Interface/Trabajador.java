@@ -16,7 +16,7 @@ public class Trabajador implements IImpuesto{
 	// ToString
 	@Override
 	public String toString() {
-		return "Trabajador [nombre=" + nombre + ", sueldo bruto=" + sueldoBruto + "]";
+		return "Trabajador [nombre=" + nombre + ", sueldo bruto=" + sueldoBruto + "€]";
 	}
 
 	

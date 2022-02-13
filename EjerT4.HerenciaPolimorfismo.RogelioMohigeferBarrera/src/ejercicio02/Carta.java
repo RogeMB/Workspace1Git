@@ -9,9 +9,8 @@ public class Carta extends Documento {
 	
 	
 	//Constructores
-	public Carta(String nombreEmpresa, String fecha, String lugar, String firmaAutor, String departamento,
-			String titulo, String cuerpo, String destinatario, String saludo, String despedida, String posdata) {
-		super(nombreEmpresa, fecha, lugar, firmaAutor, departamento, titulo, cuerpo);
+	public Carta(String destinatario, String fecha, String lugar, String firmaAutor,  String saludo, String despedida, String cuerpo, String posdata) {
+		super(fecha, lugar, firmaAutor, cuerpo);
 		this.destinatario = destinatario;
 		this.saludo = saludo;
 		this.despedida = despedida;
@@ -60,9 +59,25 @@ public class Carta extends Documento {
 		this.posdata = posdata;
 	}
 
+	// Métodos
 	
+	@Override
+	public void imprimirOtros() {
+		// TODO Auto-generated method stub
+		super.imprimirOtros();
+			System.out.println(this.destinatario + "\n\t\t\tEn "+getLugar () + " a " + getFecha() + "\n" + this.saludo +
+					"\n" + getCuerpo() + "\n" + this.despedida + "\n\t\t\tFirmado por: " 
+					+ "\n\t\t\t" + getFirmaAutor() + "\n Posdata: " + this.posdata);
+		
+	}
+
+
+
 
 	
+	
+
+
 	
 	
 }

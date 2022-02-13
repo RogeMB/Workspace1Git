@@ -1,5 +1,6 @@
 package ejercicio02;
 
+
 public class Documento {
 	
 	private String nombreEmpresa;
@@ -23,19 +24,25 @@ public class Documento {
 		this.titulo = titulo;
 		this.cuerpo = cuerpo;
 	}
-	
-	
 
-	
+
+	// para la carta
+	public Documento(String fecha, String lugar, String firmaAutor, String cuerpo) {
+		super();
+		this.fecha = fecha;
+		this.lugar = lugar;
+		this.firmaAutor = firmaAutor;
+		this.cuerpo = cuerpo;
+	}
+
+	// para la tarjeta visita
 	public Documento(String nombreEmpresa, String departamento, String titulo) {
 		super();
 		this.nombreEmpresa = nombreEmpresa;
 		this.departamento = departamento;
 		this.titulo = titulo;
 	}
-
-
-
+	
 
 	//ToString
 	@Override
@@ -44,8 +51,7 @@ public class Documento {
 				+ firmaAutor + ", departamento=" + departamento + ", titulo=" + titulo + ", cuerpo=" + cuerpo + "]";
 	}
 
-	
-	
+
 	//GettesrSetters
 	public String getNombreEmpresa() {
 		return nombreEmpresa;
@@ -104,7 +110,17 @@ public class Documento {
 	}
 	
 	
+	// Métodos
 	
+	public void imprimirOtros () {
+		
+	}
+	
+	public void imprimirDocumento () {
+		System.out.println(this.nombreEmpresa + "\n\t\t\tEn "+this.lugar + " a " + this.fecha +
+	"\n\t\tTítulo: " + this.titulo + "\n" + this.cuerpo + "\n" + this.departamento + "\n\t\t\tFirmado por: " 
+				+ "\n\t\t\t" + this.firmaAutor);
+	}
 	
 	
 

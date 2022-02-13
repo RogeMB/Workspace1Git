@@ -16,7 +16,7 @@ public class Producto implements IImpuesto{
 	// ToString
 	@Override
 	public String toString() {
-		return "Producto [precio sin IVA=" + precioSinIva + ", iva=" + iva + "]";
+		return "Producto [precio sin IVA=" + precioSinIva + "€, iva=" + iva + "%]";
 	}
 	
 	

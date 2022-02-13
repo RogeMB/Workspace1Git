@@ -39,11 +39,8 @@ public class Principal {
 		System.out.println(p);
 		System.out.println("El precio del producto con el IVA aplicado es: " + p.calculoIva(precio, iva) + "€.");
 		
-	
-		
+		System.out.println("\n\nFIN del programa");
 	}
-
-
 
 // Helpers
 

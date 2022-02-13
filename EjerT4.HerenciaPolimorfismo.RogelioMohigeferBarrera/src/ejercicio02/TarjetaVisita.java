@@ -7,23 +7,23 @@ public class TarjetaVisita extends Documento {
 	private String email;
 
 	
-	//Constructores
+	// Constructores
 	public TarjetaVisita(String nombreEmpresa, String departamento,
-			String titulo, String cuerpo, String nombreContacto, String telefono, String email) {
+			String titulo, String nombreContacto, String telefono, String email) {
 		super(nombreEmpresa, departamento, titulo);
 		this.nombreContacto = nombreContacto;
 		this.telefono = telefono;
 		this.email = email;
 	}
 
-	//ToString
+	// ToString
 	@Override
 	public String toString() {
 		return super.toString() + "TarjetaVisita [nombreContacto=" + nombreContacto + ", telefono=" + telefono + ", email=" + email + "]";
 	}
 
 
-	//GettersSetters
+	// GettersSetters
 	public String getNombreContacto() {
 		return nombreContacto;
 	}
@@ -47,9 +47,16 @@ public class TarjetaVisita extends Documento {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	
-	
-	
-	
+	// Métodos
+	@Override
+	public void imprimirOtros() {
+		// TODO Auto-generated method stub
+		super.imprimirOtros();
+		System.out.println (getNombreEmpresa () + "\t\t\t" + getDepartamento()  + "\n\t\t"  + getTitulo() 
+					+ "\n\t\t" + this.nombreContacto + "\n\t" + this.telefono + " \t\t\t" + this.email);
+		}
 	
 }
+	
