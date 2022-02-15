@@ -32,13 +32,13 @@ public class Principal {
 		System.out.println("Comenzamos creando un array de " + tam + " productos.");
 		System.out.println("Los productos de Electrónica serán cargados con un impuesto del " + variacion + "%");
 		System.out.println("Los productos de Almimentación a los que les queden menos de 2 días para caducar, tendrán "
-				+ "un descuento del " + variacion + "%");
+				+ "un descuento del 50%");
 		
 		listaProductos = new Producto[tam];
 		
 		listaProductos[0] = new Alimentacion ("Pipas", 1, 1.50, 100, LocalDate.of(2022, 3, 28));
 		listaProductos[1] = new Alimentacion ("Patatas", 2, 2.50, 70, LocalDate.of(2022, 3, 28));
-		listaProductos[2] = new Alimentacion ("Yogurt", 3, 2.50, 70, LocalDate.of(2022, 2, 13));
+		listaProductos[2] = new Alimentacion ("Yogurt", 3, 2.50, 70, LocalDate.of(2022, 2, 16));
 		listaProductos[3] = new Electronica ("Televisor PX3", 450, 300, 5, "Panasonic");
 		listaProductos[4] = new Ropa ("Camiseta", 54, 20, 50, 34);
 		

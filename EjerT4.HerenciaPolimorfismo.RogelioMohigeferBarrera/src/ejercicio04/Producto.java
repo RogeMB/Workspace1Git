@@ -11,14 +11,13 @@ public abstract class Producto {
 	private double precio;
 	private int stock;
 	
-	private int longitudNombreProducto;
-	
+
 	
 	
 	// Contructores
 	public Producto(String nombre, int id, double precio, int stock) {
-		longitudNombreProducto = 15; //Longitud por defecto
-		this.nombre = ponerLongitudCadena(nombre, longitudNombreProducto); 
+		
+		this.nombre = nombre; 
 		this.id = id;
 		this.precio = precio;
 		this.stock = stock;
@@ -85,20 +84,23 @@ public abstract class Producto {
 	 * @throws Error 401
 	 * @see #setNombre(String)
 	 */
-	public String ponerLongitudCadena(String cad, int nuevaLongitud) {
-
-		for (int i=0; i<nuevaLongitud; i++ ) {
-			cad += " ";  //rellena huecos en blanco si se queda corto
+	public String ponerLongitudCadena(String cad, int longitud) {
+		for (int i=0; i<longitud; i++ ) {
+			cad += " "; 
 		}
-		
-		cad = cad.substring(0, nuevaLongitud);  // acota a lo largo
+		cad = cad.substring(0, longitud); 
 		return cad;
 	}
 	
+	public String getNombreParaTicket() {
+		return ponerLongitudCadena(nombre,15);
+	}
 	
 	public String lineaProducto() {
-		return nombre + "\t" + id + "\t" + precio +"\t" + stock;
+		return ponerLongitudCadena(nombre, 15) + "\t" + id + "\t" + precio +"\t" + stock;
 	}
+	
+
 	
 	
 }

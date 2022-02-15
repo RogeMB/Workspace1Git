@@ -44,16 +44,11 @@ public class LineaVenta {
 	
 	
 	// Métodos
-	
-	/**
-	 * 	
-	 * @param variacion
-	 * @return
-	 */
 	public double calcularPrecioUnitario (double variacion) {			
 		double cero = 0.0;		
 		
 		if (p instanceof Alimentacion) {	
+			variacion = 50;
 			if (((Alimentacion)p).calcularCaducado()) {
 				return p.calcularPrecioTotal(variacion);
 			} else {
@@ -64,11 +59,7 @@ public class LineaVenta {
 		}
 	}
 	
-	/**
-	 * 
-	 * @param variacion
-	 * @return
-	 */
+	
 	public double calcularSubtotal(double variacion) {
 		p.setStock(p.getStock() - cantidad);
 		return calcularPrecioUnitario(variacion) * cantidad;

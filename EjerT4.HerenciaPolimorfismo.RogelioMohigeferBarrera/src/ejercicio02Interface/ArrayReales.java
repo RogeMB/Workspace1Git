@@ -46,7 +46,7 @@ public class ArrayReales implements IEstadisticas {
 	
 	public void mostrarArray () {
 		for (int i = 0; i < num.length; i++) {
-			System.out.println(num [i]);
+			System.out.println(i+1 + ". " + num [i]);
 		}
 	}
 	
@@ -54,16 +54,17 @@ public class ArrayReales implements IEstadisticas {
 	@Override
 	public double calcularMinimo () {
 		double min = 0.0;
-		int contador = 0;
+		//int contador = 0;
 		for (int i = 0; i < num.length; i++) {
-			if (contador == 0) {
+			//if (contador == 0) {
+			if (i==0) {
 				min = num [i];
 			} else {
 				if (num [i] < min) {
 					min = num [i];
 				}
 			}
-			contador ++;
+			//contador ++;
 		}
 		return min;
 	}
@@ -71,7 +72,7 @@ public class ArrayReales implements IEstadisticas {
 	
 	@Override
 	public double calcularMaximo ( ) {
-		double max = 0;
+		double max = 0.0;
 		for (int i = 0; i < num.length; i++) {
 			if (num[i] > max) {
 				max = num [i];
@@ -85,7 +86,7 @@ public class ArrayReales implements IEstadisticas {
 	public double calcularSumatorio () {
 		double suma = 0.0;
 		for (int i = 0; i < num.length; i++) {
-			suma=+ num[i];
+			suma += num[i];
 		}
 		return suma;
 	}

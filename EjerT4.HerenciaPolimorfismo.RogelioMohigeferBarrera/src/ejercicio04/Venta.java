@@ -120,7 +120,7 @@ public class Venta {
 				+ "\n================================================"
 				+ "\nCANT\tPRODUCTO\tPRECIO\t\tSUBTOTAL");
 		for (int i = 0; i < linVenta.length; i++) {
-			System.out.println(linVenta [i].getCantidad()+"\t"+linVenta[i].getProducto().getNombre()+"\t"
+			System.out.println(linVenta [i].getCantidad()+"\t"+linVenta[i].getProducto().getNombreParaTicket()+"\t"
 					+linVenta[i].calcularPrecioUnitario(variacion)
 					+"\t\t"+linVenta[i].calcularSubtotal(variacion));
 		}

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Alimentacion extends Producto{
+public class Alimentacion extends Producto implements ICaducable{
 	
 	private LocalDate fechaCaducidad;
 	
@@ -42,9 +42,9 @@ public class Alimentacion extends Producto{
 		return getPrecio() * (1- porcentajeDescuento/divisor);
 	}
 
-	
+	@Override
 	public boolean calcularCaducado () {
-		LocalDate hoy;  // Esta variable no está siendo utilizada
+		LocalDate hoy; 
 		long dias;
 		
 		hoy = LocalDate.now();
@@ -61,6 +61,16 @@ public class Alimentacion extends Producto{
 	public String lineaProducto() {
 		DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 		return super.lineaProducto() + "\t" + this.fechaCaducidad.format(formatoFecha);
+	}
+	
+	@Override
+	public String getNombreParaTicket() {
+		String miNombre;
+		miNombre = this.getNombre();
+		if (calcularCaducado()) {
+			miNombre += "*";
+		}
+		return ponerLongitudCadena(miNombre,15);
 	}
 	
 }
