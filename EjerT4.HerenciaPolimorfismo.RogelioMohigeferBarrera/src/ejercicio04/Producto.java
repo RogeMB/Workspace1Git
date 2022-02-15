@@ -2,7 +2,7 @@ package ejercicio04;
 /**
  * Clase padre.  
  * @author Rogelio Mohigefer
- * @since jdj 5.1
+ * @since jdk 5.1
  */
 public abstract class Producto {
 	
