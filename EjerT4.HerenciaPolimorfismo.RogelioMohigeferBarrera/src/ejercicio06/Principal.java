@@ -13,19 +13,12 @@ public class Principal {
 			System.out.println("Acabamos de crear la Oficina y no tiene cuentas. Listamos las cuentas:");
 			o.listarCuentas();
 			pausa();
-			
-			// Creamos cuentas de prueba:
-			// 1) Cuenta Corriente
-			//    saldo inicial: 100€, puntos iniciales: 200, puntos por uso del cajero: 10, mantenimiento: 60€
+	
 			o.crearCuentaCorriente(100, 200, 10, 60);
-			// 2) Joven
-			//    saldo inicial: 100€, regalo inicial: 0€, regalo por cada ingreso: 1€
+		
 			o.crearCuentaJoven(100, 0, 1);
-			// 3) Empresa
-			//    saldo inicial: 100€, Cargo por cada reintegro: 1€
-			o.crearCuentaEmpresa(100, 1);
-			// 4) Joven
-			//    saldo inicial: 100€, regalo inicial: 0€, regalo por cada ingreso: 3€
+		
+			
 			o.crearCuentaJoven(100, 0, 3);
 			
 			// Situación inicial:

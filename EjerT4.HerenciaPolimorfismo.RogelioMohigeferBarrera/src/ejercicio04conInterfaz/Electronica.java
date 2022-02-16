@@ -1,5 +1,5 @@
 
-package ejercicio04;
+package ejercicio04conInterfaz;
 
 public class Electronica extends Producto{
 

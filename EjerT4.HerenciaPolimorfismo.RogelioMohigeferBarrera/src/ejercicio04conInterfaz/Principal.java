@@ -2,7 +2,7 @@
  * Este paquete contiene un programa sencillo para generar un ticket de productos de un supermercado,
  *  con las siguientes clases.
  */
-package ejercicio04;
+package ejercicio04conInterfaz;
 
 import java.time.LocalDate;
 import lectura.Leer;

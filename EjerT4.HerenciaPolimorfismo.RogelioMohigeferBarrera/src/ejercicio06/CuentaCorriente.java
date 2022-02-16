@@ -1,24 +1,21 @@
 package ejercicio06;
 
 public class CuentaCorriente extends Cuenta {
-	/* Esta cuenta paga un mantenimiento fijo y acumula puntos cuando se unsa el cajero */
+
 	int sumaPuntos;
-	int puntosUsoCajero;  // puntos que se reciben cada vez que se usa el cajero
+	int puntosUsoCajero;  
 	
-	// Constructor --------------------------------
+	// Constructor 
 	public CuentaCorriente(int idCuenta, float saldoInicial, int puntosIniciales,
 			int puntosUsoCajero, int costeMantenimiento) {
-		// El cliente abre la cuenta con determinado saldo inicial:
+
 		super(idCuenta, saldoInicial, costeMantenimiento);  
-		
-		this.sumaPuntos = puntosIniciales;  // Puede haber promociones de regalo de puntos por abrir cuenta
-		
-		// Los siguientes valores pueden variar de una cuenta a otra, según el cliente:
+		this.sumaPuntos = puntosIniciales;  
 		this.puntosUsoCajero = puntosUsoCajero;
 		this.costeMantenimiento = costeMantenimiento;
 	}
 	
-	// Métodos ------------------------------------
+	// Métodos 
 	
 	// Ingreso por cajero (si la cuenta está activa):
 	@Override

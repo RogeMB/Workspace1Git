@@ -7,17 +7,24 @@ public class EmpleadoFijo extends Empleado {
 	double cien = 100.0;
 	
 	
-	// Constructor -----------------------------------------
+	// Constructor
 	public EmpleadoFijo(int numEmpleado, String nombre, double sueldoBase, int porcentajeRetencion) {
 		super(numEmpleado, nombre, sueldoBase);
 		this.porcentajeRetencion = porcentajeRetencion;
 		this.retencion = cero;  // atributo double de la super clase Empleado
 	}
-
+	
+	// ToString:
+		@Override
+		public String toString() {
+			actualizarRetencion();
+			return super.toString() + 
+					"\n\t[Modalidad: \"Fijo\". Retenciones: " + retencion + ". Porcentaje de retencion: " + porcentajeRetencion + "%]";
+		}
 
 	
-	// Setters and getters ---------------------------------
-	// No hay setRetencion porque se calcula desde el sueldoBase
+	// Setters and getters
+
 	public int getPorcentajeRetencion() {
 		return porcentajeRetencion;
 	}
@@ -32,9 +39,7 @@ public class EmpleadoFijo extends Empleado {
 	
 
 	
-	// Otros métodos ---------------------------------------
-	// Actualizar las retenciones.
-	// Las retenciones deben actualizarse antes de acceder a ellas:
+	// métodos 
 	public void actualizarRetencion() {
 		this.retencion = sueldoBase * porcentajeRetencion / cien;
 	}
@@ -42,7 +47,7 @@ public class EmpleadoFijo extends Empleado {
 	// Calcular sueldo neto final del mes:
 	@Override
 	public double calcularSueldoNetoFinal() {
-		// Actualizamos las retenciones:
+
 		actualizarRetencion();
 		return super.calcularSueldoNetoFinal() - retencion;
 	}
@@ -54,12 +59,5 @@ public class EmpleadoFijo extends Empleado {
 		this.retencion = cero;
 	}
 	
-	// toString:
-	@Override
-	public String toString() {
-		// Actualizamos las retenciones:
-		actualizarRetencion();
-		return super.toString() + 
-				"\n\t[Modalidad: \"Fijo\". Retenciones: " + retencion + ". Porcentaje de retencion: " + porcentajeRetencion + "%]";
-	}
+	
 }

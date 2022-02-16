@@ -1,4 +1,4 @@
-package ejercicio04;
+package ejercicio04conInterfaz;
 
 public interface ICaducable {
 	public boolean calcularCaducado ();

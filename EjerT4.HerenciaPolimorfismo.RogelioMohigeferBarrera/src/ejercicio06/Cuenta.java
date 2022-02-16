@@ -1,14 +1,12 @@
 package ejercicio06;
 
 public abstract class Cuenta {
-	// Esta clase no permite instancias (por eso se declara abstract)
+
 	
-	/* Las siguientes variables están referidas a la cuenta corriente. Así, sumaMantenimientos es la suma de
-	 * gastos cargados a la cuenta corriente que, para la oficina, son beneficios.
-	 */
+
 	double saldo, sumaIngresos, sumaReintegros, sumaMantenimientos;  // sumaMantenimientos recoge los cargos por mantenimiento
-	int idCuenta, costeMantenimiento;  // Nº de cuenta y coste que se aplica por el mantenimiento de la cuenta
-	boolean activa; // true si la cuenta está activa
+	int idCuenta, costeMantenimiento; 
+	boolean activa; 
 	
 	// Constructor ---------------------------------
 	Cuenta(int idCuenta, float saldo, int costeMantenimiento) {
@@ -36,7 +34,6 @@ public abstract class Cuenta {
 	
 	// Ingreso por cajero (si la cuenta está activa):
 	public boolean ingresarPorCajero(int cantidad) {
-		// Por cajero sólo se permiten ingresos int
 		if (activa) {
 			saldo += cantidad;
 			sumaIngresos += cantidad;
@@ -49,7 +46,6 @@ public abstract class Cuenta {
 	
 	// Reintegro por ventanilla (si la cuenta está activa y el saldo lo permite):
 	public boolean reintegrar(double cantidad) {
-		// Devuelve true si ha sido posible el reintegro y false, de lo contrario
 		if (activa) {
 			if (cantidad <= saldo) {
 				saldo -= cantidad;

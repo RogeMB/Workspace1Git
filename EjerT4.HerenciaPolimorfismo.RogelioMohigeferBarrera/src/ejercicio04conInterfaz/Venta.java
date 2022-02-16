@@ -1,4 +1,4 @@
-package ejercicio04;
+package ejercicio04conInterfaz;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

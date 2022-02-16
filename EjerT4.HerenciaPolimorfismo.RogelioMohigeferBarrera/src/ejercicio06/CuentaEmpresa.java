@@ -13,7 +13,7 @@ public class CuentaEmpresa extends Cuenta {
 	}
 	
 	
-	// Métodos -------------------------------------------
+	// Métodos
 	
 	// Reintegro por ventanilla (si la cuenta está activa y el saldo lo permite):
 	@Override

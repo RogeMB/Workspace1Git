@@ -1,15 +1,7 @@
 package ejercicio05;
 
 public class Empleado {
-	/* Ésta es la superclase, de la que derivan los distintos tipos de empleados.
-	 * Como no es abstracta, se podrán crear objetos de este tipo, que serán Empleados Genéricos.
-	 * Para saber que un empleado es genérico o de otro tipo, usaremos una variable:
-	 * 
-	 * tipoEmpleado -->  cuyos valores pueden ser:  0=Genérico, 1=A Comisión, 2=Fijo.
-	 * 
-	 * Esta variable valdrá 0 por defecto. Los constructores de las subclases deben encargarse
-	 * de cambiarla al valor de sus respectivos tipos.
-	 */
+
 	String nombre;
 	int numEmpleado;
 	double sueldoBase, ventas;
@@ -18,7 +10,7 @@ public class Empleado {
 	double cero = 0.0;
 	
 	
-	// Constructor ------------------------------------
+	// Constructor 
 	public Empleado(int numEmpleado, String nombre, double sueldoBase) {
 		this.numEmpleado = numEmpleado;
 		this.nombre = nombre;
@@ -29,8 +21,7 @@ public class Empleado {
 	
 	
 	
-	// Getters and Setters ----------------------------
-	// No se permite cambiar el número de empleado
+	// Getters and Setters
 	public String getNombre() {
 		return nombre;
 	}
@@ -70,7 +61,7 @@ public class Empleado {
 
 
 	
-	// Otros métodos -----------------------------------
+	// Otros métodos
 	
 	// Aumentar las ventas en una cantidad:
 	public void setNuevasVentas(double importe) {
