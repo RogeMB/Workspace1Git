@@ -1,6 +1,6 @@
 package ejercicio01Examen;
 
-public class Suite extends HabitacionEstandar {
+public class Suite extends HabitacionEstandar implements IDetallable {
 	
 	private double metrosCuadrados;
 	private double gastoExtra;
@@ -47,6 +47,14 @@ public class Suite extends HabitacionEstandar {
 		// TODO Auto-generated method stub
 		double divisor = 100.0;
 		return super.calcularPrecio(porc) + this.gastoExtra-(super.calcularPrecio(porc)) ;
+	}
+
+
+
+	@Override
+	public void mostrarDetalle() {
+		// TODO Auto-generated method stub
+		System.out.println("Botella de regalo");
 	}
 
 	

@@ -47,12 +47,24 @@ public class Gestion {
 		return total;
 	}
 	
+
+	
 	public void mostrarOcupadas (int numHab) {
 		for (int i = 0; i < numHab; i++) {
 			if(listado[i].isEsLibre())
 				System.out.println(listado[i]);
 		}
-	}	
+	}
+	
+	public void mostrarLista (int numHab) {
+		for (int i = 0; i < listado.length; i++) {
+			System.out.println((i+1) + ". " + listado [i]);
+			if(listado[i] instanceof Suite) {
+				((Suite)listado[i]).mostrarDetalle();
+			}
+		}
+	}
+	
 		
 	public void mostarDatos () {
 		//2 opciones, o un instance of por cada tipo de clase hija. O hacer este método es la clase padre y reescribirlo. y llamarlo desde aqui
