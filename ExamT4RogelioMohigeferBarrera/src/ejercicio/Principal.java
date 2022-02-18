@@ -43,6 +43,7 @@ public class Principal {
 				case 0:
 					vg= new VisitanteGeneral (nombre, id, precioBase, edad);
 					id++;
+					f.addVisitante(vg);
 					System.out.println("\n\tGenial, ¡Visitante registrado!");
 					break;
 				case 1:
@@ -52,6 +53,7 @@ public class Principal {
 					cantPatrocinio=Leer.datoDouble();
 					vg = new Empresario (nombre, id, precioBase, edad, nombreEmpresa, cantPatrocinio);
 					id++;
+					f.addVisitante(vg);
 					System.out.println("\n\tGenial, ¡Visitante registrado!");
 					break;
 				case 2:
@@ -59,6 +61,7 @@ public class Principal {
 					numeroHijos=Leer.datoInt();
 					vg = new Familiar (nombre, id, precioBase, edad, numeroHijos);
 					id++;
+					f.addVisitante(vg);
 					System.out.println("\n\tGenial, ¡Visitante registrado!");
 					break;
 				}
