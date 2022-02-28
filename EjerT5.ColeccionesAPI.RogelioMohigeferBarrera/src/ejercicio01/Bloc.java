@@ -60,6 +60,20 @@ public class Bloc {
 		}
 	}
 	
+	public void mostrarUrgentes (int idNota) {	  // Este método está mal
+		if (!listado.isEmpty() && listado.get(idNota) != null) {     
+			for (Nota nota : listado) {
+				if (buscarNota(idNota).isEsUrgente()) {
+					System.out.println(nota);	
+				}
+				idNota++;
+			}
+		}else {
+			System.out.println("\n\t\t*****ERROR, el listado está vacío*****");
+		}
+	}
+	
+	
 	public boolean determinarUrgente (int urgente) {
 		if (urgente == 1)
 			return true;
@@ -78,7 +92,7 @@ public class Bloc {
 				encontrado=true;
 			}
 		}
-		if (encontrado) {
+		if (!encontrado) {
 			return null;
 		} else {
 			return listado.get(idNota);

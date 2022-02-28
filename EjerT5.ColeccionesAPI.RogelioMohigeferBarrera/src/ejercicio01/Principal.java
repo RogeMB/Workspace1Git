@@ -25,7 +25,7 @@ public class Principal {
 		Nota n;
 		Bloc b;
 		List <Nota> listado = new ArrayList <Nota> ();
-		int id = 0, idBloc = 0, opcion = 0, salir = 0, urgente = 0, eleccion = 0;
+		int id = 1, idBloc = 0, opcion = 0, salir = 0, urgente = 0, eleccion = 0;
 		String titulo, cuerpo;
 		
 		b = new Bloc (idBloc, listado);
@@ -45,25 +45,35 @@ public class Principal {
 				cuerpo = Leer.dato();
 				System.out.println("Bien. Ahora pulse 1 si es urgente, o pulse 2 si no lo es.");
 				urgente = Leer.datoInt();
-				n = new Nota (id, titulo, cuerpo, b.determinarUrgente(urgente));
+				n = new Nota (id++, titulo, cuerpo, b.determinarUrgente(urgente));
 				b.annadirNota(n);
-				id++;
 				break;
 			case 2:
 				System.out.print("\nIntroduzca el id de la nota que quiere buscar: ");
-				id = Leer.datoInt();
+				id = Leer.datoInt() - 1;
 				System.out.println(b.buscarNota(id));		
 				break;
 			case 3:
 				System.out.println("\nEl número total de notas es de: " + b.mostrarCantidadNotas() + ".");
 				break;
 			case 4:
-				System.out.println("\nElija la posición de la nota que quiere borrar del listado siguiente: ");
+				System.out.println("\nElija el id de la nota que quiere borrar del listado siguiente: ");
 				b.mostrarListado();
-				System.out.print("Respuesta: ");
-				eleccion=Leer.datoInt();
-				b.eliminarNota(eleccion);
+				if (!listado.isEmpty()) {
+					System.out.print("Respuesta: ");
+					eleccion=Leer.datoInt() - 1;
+					b.eliminarNota(eleccion);
+				}
 				break;
+			case 5:
+				System.out.println("\t\tLISTADO DE NOTAS:");
+				b.mostrarListado();
+				break;
+			case 6:
+				System.out.println("\t\tLISTADO DE NOTAS URGENTES:");  // Esta opción está mal
+				id=0;
+				b.mostrarUrgentes(id);
+				break;				
 			default:
 				System.out.println("\n\t\t*****ERROR, elija una opción correcta******");
 			}
@@ -79,12 +89,14 @@ public class Principal {
 	}
 	
 	public static void imprimirMenu () {
-		System.out.print("Elija una opción entre las siguientes: "
+		System.out.print("\nElija una opción entre las siguientes: "
 				+ "\n\t0. Salir"
 				+ "\n\t1. Crear una nota y agregarla"
 				+ "\n\t2. Mostrar una nota"
 				+ "\n\t3. Mostrar número de notas"
 				+ "\n\t4. Borrar una nota"
+				+ "\n\t5. Mostrar listado completo"
+				+ "\n\t6. Mostrar notas urgentes"
 				+ "\nRespuesta: ");
 	}
 	
