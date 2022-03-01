@@ -17,7 +17,7 @@ public class Empresario extends VisitanteGeneral {
 	// ToString
 	@Override
 	public String toString() {
-		return "Empresario [nombreEmpresa=" + nombreEmpresa + ", CantPatrocinio=" + CantPatrocinio + "]";
+		return super.toString() + "Empresario [nombreEmpresa=" + nombreEmpresa + ", CantPatrocinio=" + CantPatrocinio + "]";
 	}
 	
 
@@ -47,13 +47,13 @@ public class Empresario extends VisitanteGeneral {
 	// Métodos
 	
 	@Override
-	public double calcularPrecioEntrada() {
+	public double calcularPrecioEntrada(double descuentoMenores, double descuentoAncianos, double descuentoEmpresario) {
 		// TODO Auto-generated method stub
-		final double descuento = 0.90;
+		final double divisor = 100.0;
 		if (this.CantPatrocinio > 100) {
-			return super.calcularPrecioEntrada() * descuento;
+			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario) * (1-(descuentoEmpresario/divisor));
 		} else {
-			return super.calcularPrecioEntrada();
+			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario);
 		}
 	}
 			

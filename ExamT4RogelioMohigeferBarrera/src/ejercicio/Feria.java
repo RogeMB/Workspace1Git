@@ -6,21 +6,19 @@ public class Feria {
 
 		private int anno;
 		private VisitanteGeneral listado [];
-		private double totalRecaudado; // queremos tener un registro de lo recaudado cada año y no tener que calcularlo en cada consulta
+		private static double totalRecaudado; // queremos tener un registro de lo recaudado cada año y no tener que calcularlo en cada consulta
 		
 		
 		
 		// Const
 		
-		
-		public Feria(int anno, VisitanteGeneral[] listado, double totalRecaudado) {
+		public Feria(int anno, VisitanteGeneral[] listado) {
 			super();
 			this.anno = anno;
 			this.listado = listado;
-			this.totalRecaudado = totalRecaudado;
 		}
-
-
+	
+		
 		// ToString
 		
 		@Override
@@ -29,6 +27,8 @@ public class Feria {
 					+ totalRecaudado + "]";
 		}
 
+		
+		//GandS
 
 		public int getAnno() {
 			return anno;
@@ -39,10 +39,6 @@ public class Feria {
 			this.anno = anno;
 		}
 
-
-	
-		
-		// GandS
 		
 		public VisitanteGeneral[] getListado() {
 			return listado;
@@ -52,19 +48,30 @@ public class Feria {
 			this.listado = listado;
 		}
 
-		public double getTotalRecaudado() {
+		public static double getTotalRecaudado() {
 			return totalRecaudado;
 		}
 
-		public void setTotalRecaudado(double totalRecaudado) {
-			this.totalRecaudado = totalRecaudado;
+
+		public static void setTotalRecaudado(double totalRecaudado) {
+			Feria.totalRecaudado = totalRecaudado;
 		}
+		
 		
 		
 		// Métodos
 		
-		public double calcularUna (int id) {
-			return listado [id].calcularPrecioEntrada(); 
+
+		public double calcularUna (int id, double descuentoMenores, double descuentoAncianos, double descuentoEmpresario, double cantidadPorHijo) {
+			double nada=0.0;
+			if (listado[id] instanceof Empresario) {
+				return listado [id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario);
+			}else if (listado [id] instanceof Familiar) {
+				return listado [id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, cantidadPorHijo); 
+			}else {
+				return listado[id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, nada);
+			}
+			
 			 
 		}
 		
@@ -77,21 +84,21 @@ public class Feria {
 			}
 		}
 		
-		public double calcularRecaudado (int id) {
+		public double calcularRecaudado (int id, double descuentoMenores, double descuentoAncianos, double descuentoEmpresario, double cantidadPorHijo) {
 			for (int i = 0; i < listado.length && listado[i] != null; i++) {
-				this.totalRecaudado += calcularUna(id);
+				Feria.totalRecaudado += calcularUna(id, descuentoMenores, descuentoAncianos, descuentoEmpresario, cantidadPorHijo);
 				id++;
 			}
 			return totalRecaudado;
 		}
 		
-		public double calcularRecaudadoFamiliar (int id) {
+		public double calcularRecaudadoFamiliar (int id, double descuentoMenores, double descuentoAncianos, double descuentoEmpresario, double cantidadPorHijo) {
 			double totalFamiliar = 0.0;
-			if (listado[id] instanceof Familiar) {
-				for (int i = 0; i < listado.length && listado[i] != null; i++) {
-					totalFamiliar += calcularUna(id);
-					id++;
+			for (int i = 0; i < listado.length && listado[i] != null; i++) {
+				if (listado[id] instanceof Familiar) {
+					totalFamiliar += calcularUna(id, descuentoMenores, descuentoAncianos, descuentoEmpresario, cantidadPorHijo);
 				}
+				id++;
 			}
 			return totalFamiliar;
 		}

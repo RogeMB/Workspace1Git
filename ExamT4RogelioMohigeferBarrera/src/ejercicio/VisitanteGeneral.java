@@ -64,18 +64,18 @@ public class VisitanteGeneral implements IEntrada {
 	// Métodos
 	
 	@Override
-	public double calcularPrecioEntrada() {
+	public double calcularPrecioEntrada(double descuentoMenores, double descuentoMayores, double flexible) {
 		// TODO Auto-generated method stub
-		if (edad < 18) {
+		final double divisor=100.0;
+		int edadMenor =  18;
+		int edadAnciano = 65;
+		if (edad < edadMenor) {
 			return 0;
-		}else if (edad>=18 && edad<65) {
+		}else if (edad>=edadMenor && edad<=edadAnciano) {
 			return precioBase;
 		}else {
-			return precioBase/2;
+			return precioBase*(1-(descuentoMayores/divisor));
 		}
 	}
-	
-	
-	
 
 }
