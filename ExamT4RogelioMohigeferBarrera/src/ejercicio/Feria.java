@@ -63,16 +63,7 @@ public class Feria {
 		
 
 		public double calcularUna (int id, double descuentoMenores, double descuentoAncianos, double descuentoEmpresario, double cantidadPorHijo) {
-			double nada=0.0;
-			if (listado[id] instanceof Empresario) {
-				return listado [id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario);
-			}else if (listado [id] instanceof Familiar) {
-				return listado [id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, cantidadPorHijo); 
-			}else {
-				return listado[id].calcularPrecioEntrada(descuentoMenores, descuentoAncianos, nada);
-			}
-			
-			 
+			return listado[id].calcularPrecioEntrada(descuentoMenores, descuentoMenores, descuentoEmpresario, cantidadPorHijo);
 		}
 		
 		public void mostrarListado () {

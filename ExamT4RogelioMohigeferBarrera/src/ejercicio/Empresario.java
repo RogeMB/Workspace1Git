@@ -47,13 +47,14 @@ public class Empresario extends VisitanteGeneral {
 	// Métodos
 	
 	@Override
-	public double calcularPrecioEntrada(double descuentoMenores, double descuentoAncianos, double descuentoEmpresario) {
+	public double calcularPrecioEntrada(double descuentoMenores, double descuentoAncianos, double descuentoEmpresario, double cantidadPorHijo) {
 		// TODO Auto-generated method stub
 		final double divisor = 100.0;
-		if (this.CantPatrocinio > 100) {
-			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario) * (1-(descuentoEmpresario/divisor));
+		double minimoParadescuento = 100.0;
+		if (this.CantPatrocinio > minimoParadescuento) {
+			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario, cantidadPorHijo) * (1-(descuentoEmpresario/divisor));
 		} else {
-			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario);
+			return super.calcularPrecioEntrada(descuentoMenores, descuentoAncianos, descuentoEmpresario, cantidadPorHijo);
 		}
 	}
 			

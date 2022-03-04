@@ -39,9 +39,9 @@ public class Familiar extends VisitanteGeneral {
 	
 	
 	@Override
-	public double calcularPrecioEntrada(double descuentoMenores, double descuentoAnciano, double cantidadPorHijo) {
+	public double calcularPrecioEntrada(double descuentoMenores, double descuentoAnciano, double descuentoEmpresario, double cantidadPorHijo) {
 		// TODO Auto-generated method stub
-		return super.calcularPrecioEntrada(descuentoMenores, descuentoAnciano, cantidadPorHijo) - this.numeroHijos * cantidadPorHijo;
+		return super.calcularPrecioEntrada(descuentoMenores, descuentoAnciano, descuentoEmpresario, cantidadPorHijo) - this.numeroHijos * cantidadPorHijo;
 	}
 	
 }
