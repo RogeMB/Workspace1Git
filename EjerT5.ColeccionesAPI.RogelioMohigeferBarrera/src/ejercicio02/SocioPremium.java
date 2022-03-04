@@ -12,6 +12,7 @@ public class SocioPremium extends Socio{
 		super(id, nombre, apellidos, edad, cuota, activo);
 		this.cantidadFamiliares = cantidadFamiliares;
 	}
+	
 
 	
 	// ToString
@@ -46,15 +47,19 @@ public class SocioPremium extends Socio{
 	
 	
 	@Override
-	public double calcularCuota(double bonificacionUno, double bonificacionDos, double bonificacionTres, int minimoMiembros, int cantidadMiembros) {
+	public double calcularCuota(double bonificacionUno, double bonificacionDos, double descuentoPremium, int minimoMiembros, int cantidadMiembros) {
 		// TODO Auto-generated method stub
 		final double divisor = 100.0;
 		if (comprobarBonificacion (minimoMiembros, cantidadMiembros)){
-			return super.calcularCuota(bonificacionUno, bonificacionDos, bonificacionTres, minimoMiembros, cantidadMiembros) * (1-(bonificacionTres/divisor));
+			return super.calcularCuota(bonificacionUno, bonificacionDos, descuentoPremium, minimoMiembros, cantidadMiembros) * (1-(descuentoPremium/divisor));
 		}else {
-			return super.calcularCuota(bonificacionUno, bonificacionDos, bonificacionTres, minimoMiembros, cantidadMiembros);
+			return super.calcularCuota(bonificacionUno, bonificacionDos, descuentoPremium, minimoMiembros, cantidadMiembros);
 		}
 		
+	}
+	
+	public void imprimirPremium () {
+		System.out.println("\t\t***PREMIUM***");
 	}
 	
 }

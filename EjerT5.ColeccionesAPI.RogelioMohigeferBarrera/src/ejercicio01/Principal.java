@@ -36,7 +36,7 @@ public class Principal {
 			opcion=Leer.datoInt();
 			switch (opcion) {
 			case 0:
-				impirmirDespedida();
+				imprimirDespedida();
 				break;
 			case 1:
 				System.out.println("\nVamos a crear una nueva nota. Diga el título de la nota: ");
@@ -100,7 +100,7 @@ public class Principal {
 				+ "\nRespuesta: ");
 	}
 	
-	public static void impirmirDespedida () {
+	public static void imprimirDespedida () {
 		System.out.println("\\t\\t=====GRACIAS, HASTA PRONTO=====");
 	}
 }

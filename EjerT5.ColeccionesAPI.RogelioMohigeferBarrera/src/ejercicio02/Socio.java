@@ -21,7 +21,7 @@ public class Socio implements ICuotable{
 		this.cuota = cuota;
 		this.activo = activo;
 	}
-
+	
 
 
 	// ToString
@@ -88,10 +88,24 @@ public class Socio implements ICuotable{
 
 	// Métodos
 	
+	
+	
+	
+	
+	
 	@Override
-	public double calcularCuota(double bonificacionUno, double bonificacionDos, double bonificacionTres, int minimoMiembros, int cantidadMiembros) {
+	public double calcularCuota(double descuentoMenores, double descuentoMayores, double bonificacionTres, int minimoMiembros, int cantidadMiembros) {
 		// TODO Auto-generated method stub
-		return 0;
+		final double divisor=100.0;
+		int edadMenor =  18;
+		int edadAnciano = 65;
+		if (edad < edadMenor) {
+			return cuota*(1-(descuentoMenores/divisor));
+		}else if (edad>=edadMenor && edad<=edadAnciano) {
+			return cuota;
+		}else {
+			return cuota*(1-(descuentoMayores/divisor));
+		}
 	}
 	
 	
