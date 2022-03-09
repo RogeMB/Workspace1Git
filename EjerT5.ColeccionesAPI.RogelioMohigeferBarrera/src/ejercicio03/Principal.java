@@ -1,5 +1,8 @@
 package ejercicio03;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Principal {
 
 	public static void main(String[] args) {
@@ -13,6 +16,25 @@ public class Principal {
 		 * por hashset.
 		 * 
 		 */
+		
+		Set<Alumno> alumnos = new HashSet <Alumno>();
+		
+		alumnos.add(new Alumno("30240458T", "Antonio", 0, 0));
+		
+		
+		CrudAlumno crud = new CrudAlumno (alumnos);
+		
+		int seleccion, eleccion, idAlumno;
+		
+		/*case 1 mostrar lista alumnos
+		 * case 2 buscar un alumno
+		 * cas3 modificar notas alumnos
+		 * case4 eliminar alumno
+		 * 
+		 */
+		
+		
+		
 	}
 
 }
