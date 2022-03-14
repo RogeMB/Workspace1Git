@@ -1,6 +1,7 @@
 package ejercicio01;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Bloc {
 	
@@ -98,5 +99,5 @@ public class Bloc {
 			return listado.get(idNota);
 		}
 	}
-	
+		
 }

@@ -2,6 +2,7 @@ package ejemploCRUDColegio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Secretaria {
 	
@@ -23,6 +24,7 @@ public class Secretaria {
 	
 	// GandS
 	
+
 	public List<Alumno> getListAlumnos() {
 		return listAlumnos;
 	}
@@ -146,6 +148,27 @@ public class Secretaria {
 		}else {
 			System.out.println("Error al insertar");
 		}
+	}
+	
+	// HashCode
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(listAlumnos);
+	}
+
+	// Equals	
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Secretaria other = (Secretaria) obj;
+		return Objects.equals(listAlumnos, other.listAlumnos);
 	}
 	
 }
