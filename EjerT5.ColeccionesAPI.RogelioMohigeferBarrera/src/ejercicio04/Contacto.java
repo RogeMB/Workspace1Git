@@ -1,8 +1,9 @@
 package ejercicio04;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Contacto {
+public class Contacto implements Comparator {
 	
 	private int id;
 	private String nombre;
@@ -118,6 +119,14 @@ public class Contacto {
 		return Objects.equals(apellidos, other.apellidos) && Objects.equals(direccion, other.direccion)
 				&& Objects.equals(email, other.email) && Objects.equals(empresa, other.empresa) && id == other.id
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(telefono, other.telefono);
+	}
+
+
+
+	@Override
+	public int compare(Object o1, Object o2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 	

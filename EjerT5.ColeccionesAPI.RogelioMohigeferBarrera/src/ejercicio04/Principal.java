@@ -21,10 +21,9 @@ public class Principal {
 		
 		String nombre, apellidos, telefono, email, direccion, empresa;
 		int id = 0, opcion = 0, salir = 0;
-		Agenda a;
-		Contacto c;
 		
 		Map <Contacto, String> listado = new HashMap <Contacto, String>();
+		Agenda a = new Agenda (listado);
 		
 		imprimirBienvenido ();
 		
