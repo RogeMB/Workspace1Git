@@ -26,7 +26,7 @@ public class Trabajador implements ITrabajable, Comparable<Trabajador> {
 	
 	@Override
 	public String toString() {
-		return "Trabajador [Nombre= " + nombre + "; Apellidos= " + apellidos + "; Horas trabajadas= "
+		return "Trabajador [Dni= " + dni + "; Nombre= " + nombre + "; Apellidos= " + apellidos + "; Horas trabajadas= "
 				+ horasTrabajadas + "; Sueldo final= " + sueldoFinal + "€]";
 	}
 
@@ -97,14 +97,15 @@ public class Trabajador implements ITrabajable, Comparable<Trabajador> {
 	@Override
 	public double calcularSueldo(double horas, double euroHora, double bono, double horasExtra, double euroHoraExtra) {
 		// TODO Auto-generated method stub
-		return horas * euroHora + horasExtra * euroHoraExtra + bono;
+		double sueldof = (horas * euroHora) + (horasExtra * euroHoraExtra) + bono;
+		return sueldof;
 	}
 	
 	
 	@Override
 	public int compareTo(Trabajador t) {
 		// TODO Auto-generated method stub
-		return (dni.compareTo(t.getDni()));
+		return (nombre.compareTo(t.getNombre()));
 	}
 	
 	

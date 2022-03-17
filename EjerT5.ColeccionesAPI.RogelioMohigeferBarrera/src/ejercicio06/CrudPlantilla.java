@@ -1,16 +1,20 @@
 package ejercicio06;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 
-import java.util.TreeMap;
 
 public class CrudPlantilla {
 	
-	private Map <String,Trabajador> listado;
+	private SortedMap <String,Trabajador> listado;
 
 	// Constructor
 	
-	public CrudPlantilla(Map<String, Trabajador> listado) {
+	public CrudPlantilla(SortedMap<String, Trabajador> listado) {
 		super();
 		this.listado = listado;
 	}
@@ -26,17 +30,22 @@ public class CrudPlantilla {
 	
 	//GandS
 	
-	public Map<String, Trabajador> getListado() {
+	public SortedMap<String, Trabajador> getListado() {
 		return listado;
 	}
 
-	public void setListado(Map<String, Trabajador> listado) {
+	public void setListado(SortedMap<String, Trabajador> listado) {
 		this.listado = listado;
 	}
 	
 	// Métodos
 	
-	public int calcularTamanno(Map <String, Trabajador> l) {
+	public void annadir(String dni, Trabajador t) {
+		listado.put(dni, t);
+	}
+	
+	
+	public int calcularTamanno(SortedMap <String, Trabajador> l) {
 		if(!l.isEmpty()) {
 			return l.size();
 		}else {
@@ -44,7 +53,32 @@ public class CrudPlantilla {
 		}
 	}
 	
-	public void mostrarListado(Map <String, Trabajador> l) {
+	public boolean calcularSueldoUno (String dni, double horasTrabajas, double horasExtra, double euroHora, double euroHoraExtra, double Bono) {
+		if (listado.containsKey(dni)) {
+			listado.get(dni).setSueldoFinal(listado.get(dni).calcularSueldo(horasTrabajas, euroHora, Bono, horasExtra, euroHoraExtra));
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public void mostrarUno (String dni) {
+		if (!listado.isEmpty()) {
+			if (listado.containsKey(dni)) {
+				System.out.println("============================================================================================================================");
+				//System.out.println(listado.values());
+				System.out.println(listado.get(dni));
+				System.out.println("============================================================================================================================");
+			}else {
+				System.out.println("\t\t***TRABAJADOR NO ENCONTRADO***");
+			}
+		}else {
+			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+		}
+	}
+	
+	
+	public void mostrarListado(SortedMap <String, Trabajador> l) {
 		int i = 1;
 		for (Map.Entry<String, Trabajador> entry : l.entrySet()) {
 			String key = entry.getKey();
@@ -56,24 +90,37 @@ public class CrudPlantilla {
 		System.out.println("============================================================================================================================");
 	}
 	
-	public void mostrarListadoOrdenadoHora(TreeMap <String, Trabajador> l) {
-		int i = 1;
-		CompararPorHora ca = new CompararPorHora ();
-		ca.compare(null, null);		
-		l = new TreeMap (ca.compare(o1, o2));
-		for (Map.Entry<String, Trabajador> entry : l.entrySet()) {
-			String key = entry.getKey();
-			Trabajador val = entry.getValue();
-			//System.out.println((i++) + ". " + key + " " + val.getNombre() + " " +  val.getApellidos() + " " + val.getHorasTrabajadas() + " " + val.getSueldoFinal());
+
+	public void mostrarListadoOrdenadoSueldo(SortedMap<String, Trabajador> listado, Comparator<Trabajador> ch) {
+		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
+		Collections.sort(list, ch);
+		int i=1;
+		if (!list.isEmpty()) {
 			System.out.println("============================================================================================================================");
-			System.out.println((i++) + ". Dni: " + key + " - " +  val);
+			for (Trabajador trabajador : list) {
+				System.out.println((i++) + ". " + trabajador + ".");
+			}
+			System.out.println("============================================================================================================================");
+		}else {
+			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
 		}
-		System.out.println("============================================================================================================================");
-		
 	}
 	
-	public double calcularSueldoFinal (double horasTrabajas, double horasExtra, double euroHora, double euroHoraExtra, double Bono) {
-		return calcularSueldoFinal(horasTrabajas, horasExtra, euroHora, euroHoraExtra, Bono);
+	
+	public void mostrarListadoOrdenadoHora(SortedMap<String, Trabajador> listado, Comparator<Trabajador> ca) {
+		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
+		Collections.sort(list, ca.reversed());
+		int i=1;
+		if (!list.isEmpty()) {
+			for (Trabajador trabajador : list) {
+				System.out.println("============================================================================================================================");
+				System.out.println((i++) + ". " + trabajador + ".");
+			}
+			System.out.println("============================================================================================================================");
+		}else {
+			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+		}
 	}
+	
 	
 }
