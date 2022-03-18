@@ -55,7 +55,7 @@ public class Principal {
 				imprimirDespedida();
 				break;
 			case 1:
-				System.out.println("\t\t\n=====AÑADIR TRABAJADOR=====");
+				System.out.println("\n\t\t=====AÑADIR TRABAJADOR=====");
 				System.out.print("Diga el dni del nuevo trabajador: ");
 				dni=Leer.dato();
 				System.out.print("Diga el nombre del nuevo trabajador: ");
@@ -75,15 +75,15 @@ public class Principal {
 				listado.get(dni).setSueldoFinal(sueldoFinal);
 				break;
 			case 2:
-				System.out.println("\t\t=====LISTADO=====");
+				System.out.println("\n\t\t=====LISTADO=====");
 				c.mostrarListado(listado);
 				break;
 			case 3:
-				System.out.println("\t\t=====LISTADO ORDENADOR POR HORAS=====");
+				System.out.println("\n\t\t=====LISTADO ORDENADOR POR HORAS=====");
 				c.mostrarListadoOrdenadoHora(listado, ch);
 				break;
 			case 4:
-				System.out.println("\t\t=====LISTADO ORDENADO INVERSAMENTE POR SUELDO=====");
+				System.out.println("\n\t\t=====LISTADO ORDENADO INVERSAMENTE POR SUELDO=====");
 				c.mostrarListadoOrdenadoSueldo(listado, cs);
 				break;
 			case 5:
@@ -110,14 +110,26 @@ public class Principal {
 						System.out.println("\n\t\t***ERROR, trabajador no encontrado****");
 					}
 				}else {
-					System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+					System.out.println("\n\t\t***EL LISTADO ESTÁ VACÍO***");
 				}
 				break;
+			case 8:
+				System.out.println("\n\t\t=====EL PRIMERO DEL LISTADO=====");
+				c.mostrarElPrimero(listado);
+				break;
+			case 9:
+				System.out.println("\n\t\t=====EL ÚLTIMO DEL LISTADO=====");
+				c.mostrarElUltimo(listado);
+				break;
+			case 10:
+				System.out.print("\nIngrese el nombre: ");
+				nombre=Leer.dato();
+				//c.buscarPorNombre(listado, nombre);
+				break;
 			default:
-				System.out.println("\t\t***ERROR, elija una opción válida");
+				System.out.println("\n\t\t***ERROR, elija una opción válida");
 			}
 		}while (opcion!=salir);
-		
 	}
 	
 	// Helpers
@@ -127,7 +139,7 @@ public class Principal {
 		}
 		
 		public static void imprimirDespedida () {
-			System.out.println("\t\t=====HASTA PRONTO=====");
+			System.out.println("\n\t\t=====HASTA PRONTO=====");
 		}
 		
 		public static void imprimirMenu () {
@@ -140,6 +152,8 @@ public class Principal {
 					+ "\n5. Mostrar un trabajador"
 					+ "\n6. Calcular tamaño del listado"
 					+ "\n7. Modificar sueldo de un trabajador"
+					+ "\n8. Mostrar el primero del listado"
+					+ "\n9. Mostrar el último del listado"
 					+ "\nRespuesta: ");
 		}
 }

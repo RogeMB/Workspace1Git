@@ -74,7 +74,16 @@ public class Trabajador implements ITrabajable, Comparable<Trabajador> {
 	}
 
 	// Equals
+	
+	
+	
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(apellidos, dni, horasTrabajadas, nombre, sueldoFinal);
+	}
+
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -105,8 +114,7 @@ public class Trabajador implements ITrabajable, Comparable<Trabajador> {
 	@Override
 	public int compareTo(Trabajador t) {
 		// TODO Auto-generated method stub
-		return (nombre.compareTo(t.getNombre()));
+		return (dni.compareTo(t.getDni()));
 	}
-	
 	
 }

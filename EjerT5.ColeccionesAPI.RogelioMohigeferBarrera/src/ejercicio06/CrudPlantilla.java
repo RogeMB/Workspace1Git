@@ -3,10 +3,10 @@ package ejercicio06;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
-
 
 public class CrudPlantilla {
 	
@@ -18,7 +18,6 @@ public class CrudPlantilla {
 		super();
 		this.listado = listado;
 	}
-	
 	
 	
 	// ToString
@@ -122,5 +121,35 @@ public class CrudPlantilla {
 		}
 	}
 	
+	public void mostrarElPrimero(SortedMap<String, Trabajador> listado) {
+		if(!listado.isEmpty()) {
+			System.out.println(listado.get(listado.firstKey()));
+		}else {
+			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+		}
+	}
+	
+	public void mostrarElUltimo(SortedMap<String, Trabajador> listado) {
+		if(!listado.isEmpty()) {
+			System.out.println(listado.get(listado.lastKey()));
+		}else {
+			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+		}
+	}
+	
+	/*public Trabajador buscarPorNombre (SortedMap<String, Trabajador> listado, String nombre) {
+		Iterator <String> it = listado.keySet().iterator();
+		Trabajador tmp = null;
+		String nombre2 = tmp.getNombre();
+		boolean encontrado = false;
+		while (it.hasNext() && !encontrado) {
+			 tmp = it.next();
+			if (tmp.getNombre().equalsIgnoreCase(nombre)) {
+				encontrado=true;
+				return tmp;
+			}
+		}
+		return tmp;
+	}*/
 	
 }
