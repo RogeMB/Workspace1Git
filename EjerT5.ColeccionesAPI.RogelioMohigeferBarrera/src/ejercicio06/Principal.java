@@ -26,7 +26,7 @@ public class Principal {
 		Trabajador t;
 		
 		
-		//TreeMap <?, ?> s=new TreeMap <> ();
+	
 		
 		SortedMap<String, Trabajador> listado = new TreeMap <String, Trabajador>();
 		
@@ -37,7 +37,8 @@ public class Principal {
 		Trabajador t5 = new Trabajador ("33333333A", "Rodrigo", null , 190.37, 2415.43);
 		
 		
-		CrudPlantilla c = new CrudPlantilla (listado);
+		
+		CrudPlantilla c = new CrudPlantilla (listado );
 		
 		listado.put("11111111Q", t1);
 		listado.put("55555555T", t2);
@@ -166,6 +167,14 @@ public class Principal {
 				}else{
 					System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
 				}
+				break;
+			case 14: 
+				TreeMap <?, ?> s = new TreeMap <> (listado);
+				System.out.println("TREEMAP IMPLANTANDO UN MAPA");
+				System.out.println(s);
+				System.out.println("TREEMAP ORDEN INVERSO");
+				System.out.println(s.descendingMap());
+				break;
 			default:
 				System.out.println("\n\t\t***ERROR, elija una opción válida");
 			}
@@ -198,6 +207,7 @@ public class Principal {
 					+"\n11. Buscar por clave"
 					+"\n12. Eliminar Trabajador"
 					+"\n13. Vaciar listado"
+					+ "\n14. TREEMAP PASANDO UN MAPA"
 					+ "\nRespuesta: ");
 		}
 }

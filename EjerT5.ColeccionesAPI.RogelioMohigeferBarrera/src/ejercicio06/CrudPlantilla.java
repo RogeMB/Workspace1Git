@@ -124,10 +124,9 @@ public class CrudPlantilla {
 	}
 	
 	public List<Trabajador> buscarPorNombre (String nombre) {
-		Iterator <Trabajador> it = listado.values().iterator();
+		Iterator <Trabajador> it = listado.values().iterator(); // probar con keySet();
 		List <Trabajador> tmp = new ArrayList <Trabajador> ();
 		Trabajador aux;
-		
 		while (it.hasNext()) {
 			 aux = it.next();
 			if (aux.getNombre().equalsIgnoreCase(nombre)) {
@@ -138,8 +137,8 @@ public class CrudPlantilla {
 	}
 	
 	public Trabajador buscarPorClave (String dni) {
-		Iterator <Trabajador> it = listado.values().iterator();
-		listado.entrySet();
+		Iterator <Trabajador> it = listado.values().iterator(); // probar con keySet();
+		//listado.entrySet();
 		Trabajador aux = null;
 		boolean encontrado = false;
 		while (it.hasNext() && !encontrado) {
@@ -148,11 +147,10 @@ public class CrudPlantilla {
 				encontrado = true;
 			}
 		}
-		if (encontrado) {
-			return aux;
-		}else {
-			return null;
+		if (!encontrado) {
+			aux = null;
 		}
+			return aux;
 	}
 	
 	public void eliminarTrabajador (String dni) {
