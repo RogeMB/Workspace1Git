@@ -76,14 +76,6 @@ public class Trabajador implements ITrabajable, Comparable<Trabajador> {
 	// Equals
 	
 	
-	
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(apellidos, dni, horasTrabajadas, nombre, sueldoFinal);
-	}
-
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

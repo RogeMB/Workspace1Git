@@ -10,16 +10,17 @@ import java.util.SortedMap;
 
 public class CrudPlantilla {
 	
-	private SortedMap <String,Trabajador> listado;
+	private Map <String,Trabajador> listado;
 
 	// Constructor
 	
-	public CrudPlantilla(SortedMap<String, Trabajador> listado) {
+	public CrudPlantilla(Map<String, Trabajador> listado) {
 		super();
 		this.listado = listado;
 	}
 	
 	
+
 	// ToString
 	
 	@Override
@@ -29,11 +30,11 @@ public class CrudPlantilla {
 	
 	//GandS
 	
-	public SortedMap<String, Trabajador> getListado() {
+	public Map<String, Trabajador> getListado() {
 		return listado;
 	}
 
-	public void setListado(SortedMap<String, Trabajador> listado) {
+	public void setListado(Map<String, Trabajador> listado) {
 		this.listado = listado;
 	}
 	
@@ -65,7 +66,6 @@ public class CrudPlantilla {
 		if (!listado.isEmpty()) {
 			if (listado.containsKey(dni)) {
 				System.out.println("============================================================================================================================");
-				//System.out.println(listado.values());
 				System.out.println(listado.get(dni));
 				System.out.println("============================================================================================================================");
 			}else {
@@ -77,9 +77,9 @@ public class CrudPlantilla {
 	}
 	
 	
-	public void mostrarListado(SortedMap <String, Trabajador> l) {
+	public void mostrarListado() {
 		int i = 1;
-		for (Map.Entry<String, Trabajador> entry : l.entrySet()) {
+		for (Map.Entry<String, Trabajador> entry : listado.entrySet()) {
 			String key = entry.getKey();
 			Trabajador val = entry.getValue();
 			//System.out.println((i++) + ". " + key + " " + val.getNombre() + " " +  val.getApellidos() + " " + val.getHorasTrabajadas() + " " + val.getSueldoFinal());
@@ -90,9 +90,10 @@ public class CrudPlantilla {
 	}
 	
 
-	public void mostrarListadoOrdenadoSueldo(SortedMap<String, Trabajador> listado, Comparator<Trabajador> ch) {
+	public void mostrarListadoOrdenado(Comparator<Trabajador> comp) {
 		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
-		Collections.sort(list, ch);
+		
+		Collections.sort(list, comp);
 		int i=1;
 		if (!list.isEmpty()) {
 			System.out.println("============================================================================================================================");
@@ -105,21 +106,6 @@ public class CrudPlantilla {
 		}
 	}
 	
-	
-	public void mostrarListadoOrdenadoHora(SortedMap<String, Trabajador> listado, Comparator<Trabajador> ca) {
-		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
-		Collections.sort(list, ca.reversed());
-		int i=1;
-		if (!list.isEmpty()) {
-			for (Trabajador trabajador : list) {
-				System.out.println("============================================================================================================================");
-				System.out.println((i++) + ". " + trabajador + ".");
-			}
-			System.out.println("============================================================================================================================");
-		}else {
-			System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
-		}
-	}
 	
 	public void mostrarElPrimero(SortedMap<String, Trabajador> listado) {
 		if(!listado.isEmpty()) {
@@ -137,19 +123,43 @@ public class CrudPlantilla {
 		}
 	}
 	
-	/*public Trabajador buscarPorNombre (SortedMap<String, Trabajador> listado, String nombre) {
-		Iterator <String> it = listado.keySet().iterator();
-		Trabajador tmp = null;
-		String nombre2 = tmp.getNombre();
-		boolean encontrado = false;
-		while (it.hasNext() && !encontrado) {
-			 tmp = it.next();
-			if (tmp.getNombre().equalsIgnoreCase(nombre)) {
-				encontrado=true;
-				return tmp;
+	public List<Trabajador> buscarPorNombre (String nombre) {
+		Iterator <Trabajador> it = listado.values().iterator();
+		List <Trabajador> tmp = new ArrayList <Trabajador> ();
+		Trabajador aux;
+		
+		while (it.hasNext()) {
+			 aux = it.next();
+			if (aux.getNombre().equalsIgnoreCase(nombre)) {
+				tmp.add(aux);
 			}
 		}
 		return tmp;
-	}*/
+	}
 	
+	public Trabajador buscarPorClave (String dni) {
+		Iterator <Trabajador> it = listado.values().iterator();
+		listado.entrySet();
+		Trabajador aux = null;
+		boolean encontrado = false;
+		while (it.hasNext() && !encontrado) {
+			aux = it.next();
+			if(aux.getDni().equalsIgnoreCase(dni)) {
+				encontrado = true;
+			}
+		}
+		if (encontrado) {
+			return aux;
+		}else {
+			return null;
+		}
+	}
+	
+	public void eliminarTrabajador (String dni) {
+			listado.remove(dni);
+	}
+	
+	public void vaciarMapa () {
+			listado.clear();
+	}
 }

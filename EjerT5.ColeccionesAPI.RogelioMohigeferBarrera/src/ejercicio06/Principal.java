@@ -24,13 +24,17 @@ public class Principal {
 		CompararPorHora ch = new CompararPorHora();
 		CompararPorSueldo cs = new CompararPorSueldo();
 		Trabajador t;
+		
+		
+		//TreeMap <?, ?> s=new TreeMap <> ();
+		
 		SortedMap<String, Trabajador> listado = new TreeMap <String, Trabajador>();
 		
 		Trabajador t1 = new Trabajador ("11111111Q", "Roge", "Mohigefer Barrera", 160.8, 2000.24);
 		Trabajador t2 = new Trabajador ("55555555T", "Carlota", "Moreno Rosendo", 170.1, 2220.73);
 		Trabajador t3 = new Trabajador ("99999999R", "Pepe", "Martín Aguilar", 160.8, 1999.50);
 		Trabajador t4 = new Trabajador ("99999999C", "Félix", "Rodríguez de la Fuente", 120.1, 1210.06);
-		Trabajador t5 = new Trabajador ("33333333A", "Rodrigo", "Díaz de Vivar", 190.37, 2415.43);
+		Trabajador t5 = new Trabajador ("33333333A", "Rodrigo", null , 190.37, 2415.43);
 		
 		
 		CrudPlantilla c = new CrudPlantilla (listado);
@@ -73,18 +77,19 @@ public class Principal {
 				c.annadir(dni, t);
 				sueldoFinal = t.calcularSueldo(horasTrabajadas, euroHora, bono, horasExtras, euroHoraExtra);
 				listado.get(dni).setSueldoFinal(sueldoFinal);
+				System.out.println("\n\t\t=====TRABAJADOR AÑADIDO=====");
 				break;
 			case 2:
 				System.out.println("\n\t\t=====LISTADO=====");
-				c.mostrarListado(listado);
+				c.mostrarListado();
 				break;
 			case 3:
 				System.out.println("\n\t\t=====LISTADO ORDENADOR POR HORAS=====");
-				c.mostrarListadoOrdenadoHora(listado, ch);
+				c.mostrarListadoOrdenado(ch);
 				break;
 			case 4:
 				System.out.println("\n\t\t=====LISTADO ORDENADO INVERSAMENTE POR SUELDO=====");
-				c.mostrarListadoOrdenadoSueldo(listado, cs);
+				c.mostrarListadoOrdenado(cs.reversed());
 				break;
 			case 5:
 				System.out.print("\nDiga el dni del trabajador: ");
@@ -124,8 +129,43 @@ public class Principal {
 			case 10:
 				System.out.print("\nIngrese el nombre: ");
 				nombre=Leer.dato();
-				//c.buscarPorNombre(listado, nombre);
+				if (c.buscarPorNombre(nombre).isEmpty()) {
+					System.out.println("\n\t\t***ERROR, trabajador no encontrado****");
+				}else {
+					System.out.println(c.buscarPorNombre(nombre));
+				}
 				break;
+			case 11:
+				System.out.print("\nIngrese el dni: ");
+				dni=Leer.dato();
+				if (listado.containsKey(dni) && !listado.isEmpty()) {
+					c.buscarPorClave(dni);
+					c.mostrarUno(dni);
+				}else if (!listado.containsKey(dni)){
+					System.out.println("\n\t\t***ERROR, trabajador no encontrado****");
+				}else {
+					System.out.println("\n\t\t***EL LISTADO ESTÁ VACÍO***");
+				}
+				break;
+			case 12:
+				System.out.print("\nIngrese el dni del trabajador que desea borrar: ");
+				dni=Leer.dato();
+				if(!listado.isEmpty()) {
+					c.eliminarTrabajador(dni);
+					System.out.println("\n\t\t====TRABAJADOR ELIMINADO=====");
+				}else if (!listado.containsKey(dni)){
+					System.out.println("\n\t\t***ERROR, trabajador no encontrado****");
+				}else {
+					System.out.println("\n\t\t***EL LISTADO ESTÁ VACÍO***");
+				}
+				break;
+			case 13:
+				if(!listado.isEmpty()) {
+					c.vaciarMapa();
+					System.out.println("\n\t\t====LISTADO VACIADO=====");
+				}else{
+					System.out.println("\t\t***EL LISTADO ESTÁ VACÍO***");
+				}
 			default:
 				System.out.println("\n\t\t***ERROR, elija una opción válida");
 			}
@@ -154,6 +194,10 @@ public class Principal {
 					+ "\n7. Modificar sueldo de un trabajador"
 					+ "\n8. Mostrar el primero del listado"
 					+ "\n9. Mostrar el último del listado"
+					+ "\n10. Buscar por nombre"
+					+"\n11. Buscar por clave"
+					+"\n12. Eliminar Trabajador"
+					+"\n13. Vaciar listado"
 					+ "\nRespuesta: ");
 		}
 }
