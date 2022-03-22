@@ -1,5 +1,7 @@
 package ejercicio03;
 
+import java.util.Objects;
+
 public class Alumno {
 	
 	private String dni;
@@ -60,5 +62,32 @@ public class Alumno {
 	public void setNotaMedia(double notaMedia) {
 		this.notaMedia = notaMedia;
 	}
+	
+	
+	// Métodos
+	
+	public int compareTo(Alumno c) {
+		return (dni.compareTo(c.getDni()));
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dni, edad, nombre, notaMedia);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Alumno other = (Alumno) obj;
+		return Objects.equals(dni, other.dni) && edad == other.edad && Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(notaMedia) == Double.doubleToLongBits(other.notaMedia);
+	}
+	
+	
 
 }

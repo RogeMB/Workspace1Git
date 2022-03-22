@@ -27,8 +27,13 @@ public class CrudAlumno {
 	}
 	
 	
+	// To String
 	
-	
+	@Override
+	public String toString() {
+		return "CrudAlumno [alumnos=" + alumnos + "]";
+	}
+
 	
 	// Métodos 
 	
@@ -48,6 +53,8 @@ public class CrudAlumno {
 		
 		return null;
 	}
+
+
 
 	public Alumno buscarporDni (String dni) {
 		Alumno alumno = null;
