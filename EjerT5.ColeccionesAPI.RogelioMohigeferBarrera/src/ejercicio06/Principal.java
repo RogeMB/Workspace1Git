@@ -1,5 +1,7 @@
 package ejercicio06;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import lectura.Leer;
@@ -170,6 +172,7 @@ public class Principal {
 				break;
 			case 14: 
 				TreeMap <?, ?> s = new TreeMap <> (listado);
+				//listado = new TreeMap <String, Trabajador> (ch); hacer un nuevo comparador con Strings
 				System.out.println("TREEMAP IMPLANTANDO UN MAPA");
 				System.out.println(s);
 				System.out.println("TREEMAP ORDEN INVERSO");
