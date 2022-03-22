@@ -28,8 +28,6 @@ public class Principal {
 		Trabajador t;
 		
 		
-	
-		
 		SortedMap<String, Trabajador> listado = new TreeMap <String, Trabajador>();
 		
 		Trabajador t1 = new Trabajador ("11111111Q", "Roge", "Mohigefer Barrera", 160.8, 2000.24);
@@ -93,6 +91,7 @@ public class Principal {
 			case 4:
 				System.out.println("\n\t\t=====LISTADO ORDENADO INVERSAMENTE POR SUELDO=====");
 				c.mostrarListadoOrdenado(cs.reversed());
+				
 				break;
 			case 5:
 				System.out.print("\nDiga el dni del trabajador: ");
