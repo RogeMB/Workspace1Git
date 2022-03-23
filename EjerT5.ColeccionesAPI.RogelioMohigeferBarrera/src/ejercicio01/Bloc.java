@@ -61,6 +61,12 @@ public class Bloc {
 		}
 	}
 	
+	public void mostrarUno (int id) {
+		if(!listado.isEmpty()) {
+			System.out.println(listado.get(id));	
+		}
+	}
+	
 	public void mostrarUrgentes (int idNota) {	  // Este método está mal
 		if (!listado.isEmpty() && listado.get(idNota) != null) {     
 			for (Nota nota : listado) {

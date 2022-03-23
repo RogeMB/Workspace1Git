@@ -143,6 +143,34 @@ public class CrudPlantilla {
 		return tmp;
 	}
 	
+	public List<Trabajador> sisisi(String dni){
+		List<Trabajador> tmp = new ArrayList <Trabajador> ();
+		Iterator<Trabajador> it = listado.values().iterator();
+		Trabajador aux;
+		while(it.hasNext()) {
+			aux=it.next();
+			if(aux.getDni().equalsIgnoreCase(dni))
+				tmp.add(aux);
+		}
+		return tmp;
+	}
+	
+	public Trabajador nonono(String dni) {
+		Trabajador aux=null;
+		Iterator <Trabajador> it = listado.values().iterator();
+		boolean encontrado=false;
+		while(it.hasNext() && !encontrado) {
+			aux=it.next();
+			if(aux.getDni().equalsIgnoreCase(dni))
+				encontrado=true;
+		}
+		if(!encontrado) {
+			aux=null;
+		}
+		return aux;
+	}
+	
+	
 	public Trabajador buscarPorClave (String dni) {
 		Iterator <Trabajador> it = listado.values().iterator(); // probar con keySet();
 		//listado.entrySet();
