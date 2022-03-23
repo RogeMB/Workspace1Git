@@ -2,7 +2,7 @@ package ejercicio03;
 
 import java.util.Objects;
 
-public class Alumno {
+public class Alumno implements Comparable<Alumno> {
 	
 	private String dni;
 	private String nombre;

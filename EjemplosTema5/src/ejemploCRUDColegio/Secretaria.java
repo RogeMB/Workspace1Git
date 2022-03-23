@@ -3,6 +3,8 @@ package ejemploCRUDColegio;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Iterator;
+
 
 public class Secretaria {
 	
@@ -123,7 +125,32 @@ public class Secretaria {
 		return listaAuxiliar;	
 	}
 	
+	public List <Alumno> buscarAlum4(String nombre){
+		List <Alumno> listaAux = new ArrayList <Alumno> ();
+		int i = 0;
+		for (Alumno alumno : listAlumnos) {
+			if(listAlumnos.get(i++).getDni().equalsIgnoreCase(nombre)) {
+				listaAux.add(listAlumnos.get(i));
+			}
+		}
+		return listaAux;
+	}
 	
+	public List <Alumno> buscar5 (String nombre) {
+		List <Alumno> aux = new ArrayList <Alumno> ();
+		/*for (Iterator <Alumno> iterator = aux.iterator(); iterator.hasNext();) {
+			Alumno alumno = (Alumno) iterator.next();
+			if(alumno.getNombre().equalsIgnoreCase(nombre)) {
+				aux.add(alumno);
+			}*/
+		Iterator <Alumno> it = listAlumnos.iterator();
+		while (it.hasNext()) {
+			if(it.next().getNombre().equalsIgnoreCase(nombre)) {
+				aux.add(it.next());
+			}
+		}
+		return aux;
+	}
 	
 	
 	public void imprimirLista () {

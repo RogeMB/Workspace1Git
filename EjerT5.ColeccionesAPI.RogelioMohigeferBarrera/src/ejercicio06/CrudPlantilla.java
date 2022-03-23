@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.SortedMap;
 
 public class CrudPlantilla {
@@ -89,6 +90,12 @@ public class CrudPlantilla {
 		System.out.println("============================================================================================================================");
 	}
 	
+	public int random(int max, int min) {
+		int valor=0;
+		Random r = new Random();
+		valor = r.nextInt(max - min +1) +min;
+		return valor;
+	}
 
 	public void mostrarListadoOrdenado(Comparator<Trabajador> comp) {
 		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
