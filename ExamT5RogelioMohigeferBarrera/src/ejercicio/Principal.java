@@ -13,7 +13,6 @@ public class Principal {
 		
 		int opcion=0, salir=0, id=0, centimoMensaje=0;
 		String nombreContacto, cuerpoMensaje;
-		double totalRecaudado=0.0;
 		
 		List<Mensaje> listado = new ArrayList<Mensaje> ();
 		
@@ -87,14 +86,14 @@ public class Principal {
 			case 6:
 				System.out.println("\n===MOSTRAR TODOS ORDENADOS POR ID===");
 				Collections.sort(listado);
-				w.mostarTodos(); //No hace falta hacer otro método
+				w.mostarTodos();
 				break;
 			case 7:
 				System.out.print("\nDiga el nombre del contacto del que quiere buscar los mensajes: ");
 				nombreContacto=Leer.dato();
 				if(!listado.isEmpty()) {
-					totalRecaudado = w.calcularRecaudado(centimoMensaje, nombreContacto);
-					System.out.println("El total recaudado de " + nombreContacto + " es: " + totalRecaudado + " centimos de €.");
+					w.calcularRecaudado(centimoMensaje, nombreContacto);
+					System.out.println("El total recaudado de " + nombreContacto + " es: " + Whatsapp.getTotalRecaudado() + " €.");
 				}else {
 					System.out.println("***ERROR listado vacío***");
 				}

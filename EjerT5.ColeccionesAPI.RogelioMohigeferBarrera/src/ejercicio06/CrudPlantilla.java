@@ -99,7 +99,6 @@ public class CrudPlantilla {
 
 	public void mostrarListadoOrdenado(Comparator<Trabajador> comp) {
 		List <Trabajador> list = new ArrayList <Trabajador> (listado.values());
-		
 		Collections.sort(list, comp);
 		int i=1;
 		if (!list.isEmpty()) {

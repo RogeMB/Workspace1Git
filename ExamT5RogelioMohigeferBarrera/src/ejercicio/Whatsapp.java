@@ -111,7 +111,7 @@ public class Whatsapp {
 	
 	public void mostrarBonito(List<Mensaje> l) {
 		for (Mensaje mensaje : l) {
-			System.out.println(mensaje); //no me ha dado tiempo de usarlo
+			System.out.println(mensaje); //no me ha dado tiempo a usarlo
 		}
 	}
 	
