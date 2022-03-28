@@ -9,24 +9,22 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
-		 * Crear una clase Trabajador con los siguientes atributos:
-		 * Nombre, DNI, Horas trabajadas y sueldo final (este se puede calcular de cualquier manera sencilla de las que
-		 * hemos visto anteriormente).
-
-		 * Guardar varios trabajadores en una colección y mostrar los trabajadores ordenados según el número de horas
-		 * trabajadas o según el sueldo (del que menos al que más cobra). Se deben usar comparable o comparator.
+		 * Un programa para tener organizada una plantilla de trabajadores, que podamos crear un trabajador, calcular su 
+		 * sueldo en base a las horas trabajadas y si se le quiere aplicar algún bono extra. También organizar la plantilla,
+		 * buscar en ella, ordenarla, eliminar trabajadores,  etc.
 		 */
 		
 		int opcion = 0, salir = 0;
 		double horasTotales= 0.0, horasTrabajadas = 0.0, horasExtras = 0.0, bono = 0.0, euroHora = 0.0, euroHoraExtra = 0.0, sueldoFinal = 0.0; 
 		String dni, nombre, apellidos;
+		Trabajador t;
 		
 		// Creamos Comparadores. Esto no es del todo necesario ya que puedes crearlo en el propio constructor del mapa 
 		CompararPorHora ch = new CompararPorHora(); 
 		CompararPorSueldo cs = new CompararPorSueldo();
-		Trabajador t;
 		
-		// Esto es una interfaz SortedMap de String key y Trabajadores Value que 
+		
+		// Esta es la forma más habitual de instanciar un SortedMap, en este caso sin Comparador. 
 		SortedMap<String, Trabajador> listado = new TreeMap <String, Trabajador>();
 		
 		Trabajador t1 = new Trabajador ("11111111Q", "Roge", "Mohigefer Barrera", 160.8, 2000.24);
@@ -34,8 +32,7 @@ public class Principal {
 		Trabajador t3 = new Trabajador ("99999999R", "Pepe", "Martín Aguilar", 160.8, 1999.50);
 		Trabajador t4 = new Trabajador ("99999999C", "Félix", "Rodríguez de la Fuente", 120.1, 1210.06);
 		Trabajador t5 = new Trabajador ("33333333A", "Rodrigo", null , 190.37, 2415.43);
-		
-		
+		// Hemos metido un null queriendo para ver que podemos utilizar valores nulos. Pero no KEYS!!
 		
 		CrudPlantilla c = new CrudPlantilla (listado );
 		
@@ -58,7 +55,7 @@ public class Principal {
 			case 0:
 				imprimirDespedida();
 				break;
-			case 1:
+			case 1: // case para crear un trabajador y calcular su sueldo
 				System.out.println("\n\t\t=====AÑADIR TRABAJADOR=====");
 				System.out.print("Diga el dni del nuevo trabajador: ");
 				dni=Leer.dato();
@@ -81,15 +78,15 @@ public class Principal {
 				break;
 			case 2:
 				System.out.println("\n\t\t=====LISTADO=====");
-				c.mostrarListado();
+				c.mostrarListado(); // listado ordenado por el orden natural
 				break;
 			case 3:
 				System.out.println("\n\t\t=====LISTADO ORDENADOR POR HORAS=====");
-				c.mostrarListadoOrdenado(ch);
+				c.mostrarListadoOrdenado(ch); // le estamos pasando un comparador al método
 				break;
 			case 4:
 				System.out.println("\n\t\t=====LISTADO ORDENADO INVERSAMENTE POR SUELDO=====");
-				c.mostrarListadoOrdenado(cs.reversed());
+				c.mostrarListadoOrdenado(cs.reversed()); // utilizamos el método reversed para ordenarlos inversamente.
 				
 				break;
 			case 5:
@@ -121,11 +118,11 @@ public class Principal {
 				break;
 			case 8:
 				System.out.println("\n\t\t=====EL PRIMERO DEL LISTADO=====");
-				c.mostrarElPrimero(listado);
+				c.mostrarElPrimero(listado); //Mirar CrudPlantilla para ver qué estamos haciendo
 				break;
 			case 9:
 				System.out.println("\n\t\t=====EL ÚLTIMO DEL LISTADO=====");
-				c.mostrarElUltimo(listado);
+				c.mostrarElUltimo(listado); // Mirar CrudPlantilla para ver qué estamos haciendo
 				break;
 			case 10:
 				System.out.print("\nIngrese el nombre: ");
@@ -133,7 +130,7 @@ public class Principal {
 				if (c.buscarPorNombre(nombre).isEmpty()) {
 					System.out.println("\n\t\t***ERROR, trabajador no encontrado****");
 				}else {
-					System.out.println(c.buscarPorNombre(nombre));
+					System.out.println(c.buscarPorNombre(nombre)); // Mirar CrudPlantilla para ver qué estamos haciendo
 				}
 				break;
 			case 11:
@@ -169,12 +166,23 @@ public class Principal {
 				}
 				break;
 			case 14: 
-				TreeMap <?, ?> s = new TreeMap <> (listado);
-				//listado = new TreeMap <String, Trabajador> (ch); hacer un nuevo comparador con Strings
-				System.out.println("TREEMAP IMPLANTANDO UN MAPA");
-				System.out.println(s);
-				System.out.println("TREEMAP ORDEN INVERSO");
-				System.out.println(s.descendingMap());
+				// Esto es una forma de construir un TreeMap pasándole las entradas de un Mapa ya creado.
+				TreeMap <?, ?> nuevo = new TreeMap <> (listado); //  Los interrogantes son comodines. 
+															// Con el operador diamante (Java v7) el compilador sabe qué argumentos utilizar
+				System.out.println("\nTREEMAP SOBRE UN MAPA YA CREADO");
+				System.out.println(nuevo); // El treeMap ordena naturalmente.
+				System.out.println("\nTREEMAP ORDEN INVERSO"); // Con este método ordenamos las keys inversamente.
+				System.out.println(nuevo.descendingMap());
+				
+				//Forma de crear un TreeMap con un objeto como Key y con un comparador por sueldo.
+				System.out.println("\nTREEMAP con trabajadores asociados a sus encargados");
+				TreeMap <Trabajador, Trabajador> nuevisimo = new TreeMap <Trabajador, Trabajador> (cs);
+				nuevisimo.put(t1, t5);
+				nuevisimo.put(t2, t1);
+				nuevisimo.put(t3, t2);
+				nuevisimo.put(t4, t1); // metemos los valores con .put()
+				nuevisimo.put(t5, t3);
+				c.mostrarListadoTree(nuevisimo);
 				break;
 			default:
 				System.out.println("\n\t\t***ERROR, elija una opción válida");
@@ -185,7 +193,7 @@ public class Principal {
 	// Helpers
 	
 		public static void imprimirBienvenida () {
-			System.out.println("\t\t=====BIENVENIDO AL PROGRAMA=====");
+			System.out.println("\t\t=====BIENVENIDO AL PROGRAMA PARA GESTIONAR LA PLANTILLA=====");
 		}
 		
 		public static void imprimirDespedida () {
@@ -208,7 +216,7 @@ public class Principal {
 					+"\n11. Buscar por clave"
 					+"\n12. Eliminar Trabajador"
 					+"\n13. Vaciar listado"
-					+ "\n14. TREEMAP PASANDO UN MAPA"
+					+ "\n14. CREAR UN TREEMAP PASANDO UN MAPA"
 					+ "\nRespuesta: ");
 		}
 }
