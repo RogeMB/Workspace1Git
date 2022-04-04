@@ -8,7 +8,6 @@ public class Principal {
 		// TODO Auto-generated method stub
 
 		LocalDate date1 = LocalDate.now();
-		o
 		
 		
 	}
