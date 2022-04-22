@@ -10,10 +10,17 @@ public class Principal {
 		return numerator / denominator; // possible division by zero
 	} // end method quotient
 
+	public static void comprobarEdad (int edad) throws EdadNegativaExc{
+		if (edad<0) {
+			throw new EdadNegativaExc("No puede haber edades negativas, de momento.");
+		}
+	}
+	
+	
 	public static void main(String args[]) {
 		// TODO Auto-generated method stub
 		
-		int num, den;
+		int num, den, edad;
 		String aux;
 		
 		Scanner sc = new Scanner(System.in); // scanner for input
@@ -27,6 +34,13 @@ public class Principal {
 				 * System.out.print("Please enter an integer denominator: ");
 				 * int denominator = scanner.nextInt();
 				 */
+				
+				// Excepción propia
+				System.out.println("Please enter your age: ");
+				aux=sc.nextLine();
+				edad= Integer.parseInt(aux);
+				comprobarEdad(edad);
+					
 				
 				System.out.print("Please enter an integer numerator: ");
 				aux=sc.nextLine();
@@ -62,6 +76,11 @@ public class Principal {
 			catch (NumberFormatException numberFormatException) {
 				System.err.printf("\nException: %s\n", numberFormatException);
 				System.out.println("Yoy must enter numbers. Please try again.\n");
+			}
+			
+			catch (EdadNegativaExc edadExc) { // es la más genérica de todas, por lo tanto, la última
+				System.out.println(edadExc.getMessage());
+				// System.out.println("You must enter a positive number. Please try again.\n");
 			}
 			
 		} while (continueLoop); // end do...while
