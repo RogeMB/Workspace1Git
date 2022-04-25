@@ -30,7 +30,6 @@ public class Principal {
 				
 				ce.comprobarAB();
 				ce.calcularDiscriminante();
-				ce.calcularEc();
 				
 				for (double sol : ce.calcularEc()) {
 					System.out.printf("\nLa solución es: %.2f", sol);				
